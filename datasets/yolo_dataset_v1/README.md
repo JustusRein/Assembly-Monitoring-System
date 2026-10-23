@@ -1,4 +1,4 @@
-# yolo_dataset_v1 — early two-class development dataset
+# yolo_dataset_v1 :- early two-class development dataset
 
 **This is not the thesis dataset.** It is kept for history.
 

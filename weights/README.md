@@ -1,4 +1,4 @@
-# `weights/` — trained model checkpoints
+# `weights/` :- trained model checkpoints
 
 **This folder is empty in the repository on purpose.** Model checkpoints are
 ~20 MB each, and binary files that change every training run do not belong in
