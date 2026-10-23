@@ -1,4 +1,4 @@
-# `synthetic_data_generator/` - CAD to labelled training data
+# `synthetic_data_generator/` :- CAD to labelled training data
 
 This folder holds the Blender pipeline that produced the training data for the detector in this repository. It is the answer to the last clause of the thesis research question: *"particularly with limited datasets."*
 
