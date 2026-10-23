@@ -1,141 +1,163 @@
-# Assembly Monitor V2.1 — Vision-Based Monitoring of Manual Assembly
+# Assembly Monitor V2.1
+
+**A camera watches someone assembling a product by hand, and writes down what happened.**
+
+Which components are on the bench, which assembly stage the operator has reached, how long each stage took, and whether the steps were done in the right order — all of it recorded automatically, from one ordinary webcam.
+
+![Component detection on held-out images](Assembly_monitor/thesis_results/detector/run/val_batch0_pred.jpg)
+
+*The detector on held-out images: seven component classes with confidence scores. This is only the first step — the system still has to work out what these detections* mean *in process terms.*
+
+Built for my M.Sc. thesis *AI-Supported Ergonomic and Productivity Analysis in Manual Assembly* at the Institute of Product Life Cycle Management (PLCM), Technische Universität Darmstadt.
 
 > **Project family:** [V1 Classical CV](https://github.com/MehulTU/Assembly-Monitoring-System) · [V2 YOLO pipeline](https://github.com/MehulTU/Assembly-Monitoring-System-V2) · **V2.1 (this repo)** · Author: [@MehulTU](https://github.com/MehulTU)
 
-Final software from my M.Sc. thesis *AI-Supported Ergonomic and Productivity Analysis in Manual Assembly*, Institute of Product Life Cycle Management (PLCM), Technische Universität Darmstadt.
+---
 
-The system watches a manual assembly workstation with a single RGB camera and turns what it sees into structured process data: which components are present, which assembly stage the operator has reached, how long each stage took, and whether the observed sequence deviates from the expected one.
+## Quick start
+
+```bash
+pip install -r requirements.txt
+python Assembly_monitor/check_setup.py     # tells you what is missing
+python Assembly_monitor/main.py            # run the live system
+```
+
+You need Python 3.12, a webcam, and trained weights at `weights/best.pt` — these are **not in the repository**; see [`weights/`](weights) for the download.
+
+Full operating instructions, keyboard controls and settings: **[`Assembly_monitor/README.md`](Assembly_monitor/README.md)**.
 
 ---
 
-## What the system does
+## Why this exists
+
+Manual assembly stays human in small-batch, high-variety production, because a person adapts to a new product variant immediately and a machine does not. But that work gets measured by stopwatch and manual observation — neither continuous nor repeatable.
+
+So the situation is this: everything happening at the bench is completely visible, and none of it exists as data.
+
+A second problem shaped the whole project. **There were no labelled images of these components anywhere.** They are specialised, one-off parts, and hand-annotating every new product variant does not scale. Any solution that needs a human to draw thousands of boxes first is not a solution.
+
+## How it works
 
 ```
 camera frame
-   → component detection          (YOLO, 7 classes)
-   → composition per frame        (which parts + how many)
-   → candidate assembly stage     (matched against the 7-stage reference)
-   → temporal confirmation        (3 of the last 5 frames must agree)
-   → confirmed stage + process log (timestamp, duration, WRONG_ORDER warnings)
+   → component detection            YOLO, 7 classes
+   → composition per frame          which parts, how many
+   → candidate assembly stage       matched against the 7-stage reference
+   → temporal confirmation          3 of the last 5 frames must agree
+   → confirmed stage + process log  timestamp, duration, WRONG_ORDER warnings
 ```
 
-The key design decision is that **perception and interpretation are separate layers**. The detector only reports what it sees. The state machine decides what that means, driven by a sequence table rather than by code. Either side can be replaced without touching the other.
+The design decision that matters: **perception and interpretation are separate layers.** The detector only reports what it sees. A state machine decides what that means, driven by a sequence table rather than by code. Either side can be swapped without touching the other — which is what makes the method portable to a different product.
 
-### Use case
+A single noisy frame can never move the process state. That is what the 3-of-5 confirmation rule is for.
 
-An industrial lever-lock subassembly supplied by a partner company: **8 physical components, 7 detector classes** (the two bushings are one class), assembled in **7 defined stages**.
+### The product being assembled
 
-| Class | Stage sequence |
+An industrial lever-lock subassembly: **8 physical components, 7 detector classes** (the two bushings are the same class), built in **7 defined stages**.
+
+| | |
 | --- | --- |
-| `body_a`, `body_b`, `block_pin`, `bushing`, `nut`, `knob`, `threaded_pin` | S01 base body + 1 bushing → S02 + 2 bushings → S03 + body_b → S04 + block_pin → S05 + nut → S06 locking subassembly (threaded pin + knob) → S07 complete |
+| **Classes** | `body_a` · `body_b` · `block_pin` · `bushing` · `nut` · `knob` · `threaded_pin` |
+| **Stages** | S01 base body + 1 bushing → S02 + 2 bushings → S03 + body_b → S04 + block_pin → S05 + nut → S06 locking subassembly (threaded pin + knob) → S07 complete |
 
 ---
 
-## Repository structure
+## Where the training data came from
 
-```
-Assembly-Monitoring-System-V2.1/
-├── Assembly_monitor/            the monitoring software (modular package)
-│   ├── acquisition/             camera interface, frame validation
-│   ├── processing/              motion detection, YOLO object detection
-│   ├── decision/                assembly state machine, event + position logic
-│   ├── analytics/               session metrics
-│   ├── storage/                 process log, session logger
-│   ├── visualization/           live display, stage preview
-│   ├── config/                  settings.py, position config
-│   ├── tools/                   calibration and measurement utilities
-│   ├── thesis_results/          detector metrics, resolution study, trial results
-│   ├── validation_output/       V2.1 validation analysis output
-│   └── main.py                  entry point for the live system
-├── scripts/                     dataset preparation, annotation, training, offline inference
-├── V21_validation_evidence_pack/  scripts that rebuild the thesis figures and tables
-├── datasets/                    dataset metadata and annotation exports
-├── experiments/                 experiment plans
-├── logs/                        V1 baseline session CSVs and V2.1 process logs (JSONL)
-├── models/ · runs/              training and inference outputs
-└── archive/                     superseded code kept for traceability
-```
+No labelled images existed, so the dataset was **generated from the CAD model** instead of photographed and annotated.
 
-Large binaries are deliberately **not** in the repository — see [What is not here](#what-is-not-here).
+Components are placed in a parameterised Blender scene with randomised pose, camera position, lighting and background. The renderer produces the image and the label *together*, so every bounding box is computed from known 3-D geometry and a known camera — **exact by construction, with no box drawn by hand.**
 
----
+**6,551 images · 8,714 annotated instances · 3,916 train / 1,316 val / 1,319 test**, from five sources covering single parts and ordered subassembly scenes.
 
-## Running it
+Manual annotation was considered and rejected: it costs effort for every image, produces inconsistent labels, and has to be repeated for every new product — which defeats the point of a transferable method. This part is the most reusable result of the thesis: a new product needs its CAD model and nothing else.
 
-Requires Python 3.12, a webcam, and the trained weights at `weights/best.pt`.
-
-```bash
-pip install -r requirements.txt        # ultralytics, opencv-python, numpy, torch
-python Assembly_monitor/check_setup.py # verifies camera, weights, class names, paths
-python Assembly_monitor/main.py        # live monitoring
-```
-
-`main.py` loads the detector from `YOLO_MODEL_PATH` in `Assembly_monitor/config/settings.py`, so a retrained checkpoint is picked up with no code change. That is the modular integration point.
-
-Useful utilities:
-
-| Command | Purpose |
-| --- | --- |
-| `python Assembly_monitor/check_setup.py` | Pre-flight check of camera, weights and class names |
-| `python Assembly_monitor/tools/set_work_area.py` | Define the workspace region of interest |
-| `python Assembly_monitor/analyze_v21_validation.py` | Analyse recorded process logs |
-| `python scripts/train_yolo.py` | Train, evaluate and deploy a detector from an annotated real-image dataset |
-| `python scripts/run_offline_inference.py` | Run the detector over stored frames |
+The generation pipeline is a separate Blender project and is **not published here**, because its scripts embed CAD geometry supplied by the industrial partner. The procedure is documented at method level in Appendix B of the thesis, so it can be reproduced from your own CAD.
 
 ---
 
 ## Results
 
-**Detector**, evaluated offline on held-out synthetic images:
+### Detector — offline, on held-out synthetic images
 
 | Split | Images | Precision | Recall | mAP@0.50 | mAP@0.50:0.95 |
 | --- | --- | --- | --- | --- | --- |
 | Validation | 1,316 | 91.64 % | 83.14 % | 91.93 % | 69.38 % |
 | Test (held out) | 1,319 | 89.15 % | 86.24 % | 92.54 % | 69.90 % |
 
-Weakest classes: `threaded_pin` (recall 70.56 %, small and partly inside the body once inserted) and `body_b` (mAP@0.50:0.95 61.61 %, occluded once the halves are joined). Both are occlusion and scale effects rather than class confusion.
+![Normalised confusion matrix](Assembly_monitor/thesis_results/detector/confusion_matrix.png)
 
-**Training data:** 6,551 images from five sources, 8,714 annotated instances, split 3,916 / 1,316 / 1,319. The dataset was generated from CAD geometry in Blender — bounding boxes are computed from the known 3-D geometry and camera, so no label was drawn by hand. The generator lives in a separate project; this repository consumes its output.
+The weakest classes are `threaded_pin` (recall 70.56 % — small, thin, and partly inside the body once inserted) and `body_b` (mAP@0.50:0.95 61.61 % — occluded once the halves are joined). Both are occlusion and scale effects, not the detector confusing one class for another.
 
-**Integrated runtime:** four live sessions produced 60 state records and 11 `WRONG_ORDER` warnings, with session durations of 64.52–184.23 s and stage times of 0.17–13.12 s.
+The gap between the two mAP columns says something specific: the detector finds the right objects, but the boxes are not always tightly placed. That is a localisation gap, not a miss rate — and for counting *which components are present*, the looser threshold is the relevant one.
+
+### Why 640 px
+
+![mAP and recall against inference input size](Assembly_monitor/thesis_results/resolution_study/resolution_study.png)
+
+Larger inputs did not improve the small-part classes enough to justify the frame-rate cost on the target hardware — a laptop, running at 10–14 fps.
+
+### The integrated system, across four live sessions
+
+![Stage transitions and warnings across live sessions](Assembly_monitor/validation_output/v21_evidence_20261009_165104/fig_v21_transition_timeline.png)
+
+60 state records and 11 `WRONG_ORDER` warnings; session durations 64.52–184.23 s; stage times 0.17–13.12 s. The raw logs are in [`logs/process/`](logs/process), and the scripts that rebuild these figures from them are in [`V21_validation_evidence_pack/`](V21_validation_evidence_pack).
 
 ### What the evidence does and does not support
 
-This is stated plainly because the distinction matters:
+Stated plainly, because the distinction is the point:
 
-- **Quantified** — detector performance on held-out *synthetic* images, and the camera-viewpoint study.
-- **Demonstrated but not scored** — the integrated runtime. The live sessions have no independently annotated reference of the physical stage transitions or of when deviations were introduced, so the 11 warning records establish that the warning function was active, **not** its sensitivity, specificity or response delay.
-- **Not implemented** — human pose estimation and RULA/REBA ergonomic scoring. These are defined in the requirements and the architecture provides the interface, but they were not built or evaluated.
+| | |
+| --- | --- |
+| **Quantified** | Detector performance on held-out *synthetic* images; the camera-viewpoint and resolution studies. |
+| **Demonstrated, not scored** | The integrated runtime. The live sessions have no independently annotated record of the physical stage transitions, or of when deviations were introduced. So the 11 warning records establish that the warning function was **active** — not its sensitivity, its specificity, or its response delay. |
+| **Not implemented** | Human pose estimation and RULA/REBA ergonomic scoring. These are defined in the requirements and the architecture provides the interface, but they were not built and not evaluated. |
 
-The thesis targets of workflow accuracy > 90 % and timing error < 10 % therefore remain **unscored**, and no end-to-end "system accuracy" figure is reported. Converting the descriptive counts into rates requires a controlled trial that records stage transitions and error-introduction times independently.
+The thesis targets of workflow accuracy > 90 % and timing error < 10 % therefore remain **unscored**, and no end-to-end "system accuracy" figure is reported anywhere. Turning the descriptive counts into rates requires a controlled trial that records stage transitions and error-introduction times independently — which is the first item of future work, not a detail.
 
 ---
 
-## What is not here
+## Repository map
 
-Excluded by `.gitignore` to keep the repository usable:
+| Folder | What is in it |
+| --- | --- |
+| [`Assembly_monitor/`](Assembly_monitor) | **The software.** Start here — it has its own README |
+| [`Assembly_monitor/decision/`](Assembly_monitor/decision) | The interpretation layer: assembly state machine, position validator, seat finder |
+| [`Assembly_monitor/thesis_results/`](Assembly_monitor/thesis_results) | Detector metrics, resolution study, trial results — the figures and LaTeX tables used in the thesis |
+| [`Assembly_monitor/validation_output/`](Assembly_monitor/validation_output) | Session summaries, transition and warning events from the live runs |
+| [`V21_validation_evidence_pack/`](V21_validation_evidence_pack) | Scripts that rebuild the validation figures and tables from the raw logs |
+| [`logs/`](logs) | V1 baseline session CSVs and V2.1 process logs (JSONL) — the raw evidence behind every number above |
+| [`scripts/`](scripts) | Dataset preparation, annotation export, training, offline inference |
+| [`datasets/`](datasets) | Dataset metadata and annotation exports. See the [note](datasets/yolo_dataset_v1) on the early two-class dataset |
+| [`archive/`](archive) | Superseded code, kept for traceability |
+
+### What is deliberately not in the repository
 
 | Excluded | Why |
 | --- | --- |
-| `weights/*.pt` | Model checkpoints (~20 MB each) |
+| `weights/*.pt` | Model checkpoints, ~20 MB each — see [`weights/`](weights) |
 | `recordings/`, `*.mp4` | Session video |
-| `datasets/` image and label folders | Thousands of training images |
+| Dataset image and label folders | Thousands of training images |
 | `runs/` | Ultralytics training output |
 | `venv/`, `__pycache__/` | Environment and build artefacts |
 
-The trained checkpoint and the synthetic dataset are available on request.
+The trained checkpoint is published on the [Releases page](../../releases).
 
 ---
 
-## Related
+## How this repository came to exist
 
-- **V1** — classical computer-vision baseline: greyscale, background subtraction, morphology, contour motion score, temporal filter. Produced ACTIVE/IDLE intervals but no component identity. The limitation that motivated V2.
-- **V2 / V2.1** — object detection plus assembly-state interpretation. V2.1 adds the state machine, the structured process log, sequence-deviation warnings and the validation tooling.
-- Early classical-CV learning scripts are kept in `Assembly_monitor/src(all basic codes)/`.
+| Repo | What it was |
+| --- | --- |
+| [V1](https://github.com/MehulTU/Assembly-Monitoring-System) | Classical computer vision — greyscale, background subtraction, morphology, contour motion score, temporal filter. It produced activity intervals and timing that worked. But every event carried the same label: `ACTIVE`. The system knew work was happening and not *which* work. That limitation is what motivated V2. |
+| [V2](https://github.com/MehulTU/Assembly-Monitoring-System-V2) | The first YOLO pipeline. Object detection was added inside the existing modular architecture, which did not have to change — the point the architecture was designed for. |
+| **V2.1 (here)** | The assembly state machine, structured process logging, sequence-deviation warnings, the validation tooling and the thesis results. |
 
-## Technologies
+Early classical-CV learning scripts from V1 are kept in `Assembly_monitor/src(all basic codes)/`.
 
-Python · OpenCV · Ultralytics YOLO · PyTorch · NumPy · Blender (synthetic data) · CVAT (annotation)
+## Built with
+
+Python · OpenCV · Ultralytics YOLO · PyTorch · NumPy · Blender (synthetic data generation) · CVAT (annotation)
 
 ## Author
 
