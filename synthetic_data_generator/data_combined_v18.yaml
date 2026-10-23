@@ -1,0 +1,35 @@
+# Five-source dataset config used to train the deployed YOLO26s checkpoint.
+#
+# Totals: 3,916 train / 1,316 val / 1,319 test = 6,551 images
+#         8,714 / 2,938 / 2,922 annotated instances
+#
+# `path` is the synthetic_dataset root produced by the generator. Set it to
+# your own output folder; the five source paths below are relative to it.
+path: .
+train:
+  - images/train
+  - subassembly/images/train
+  - addon_single_fullrot/images/train
+  - subassembly_addon_fullrot/images/train
+  - variants_fullrot/images/train
+val:
+  - images/val
+  - subassembly/images/val
+  - addon_single_fullrot/images/val
+  - subassembly_addon_fullrot/images/val
+  - variants_fullrot/images/val
+test:
+  - images/test
+  - subassembly/images/test
+  - addon_single_fullrot/images/test
+  - subassembly_addon_fullrot/images/test
+  - variants_fullrot/images/test
+nc: 7
+names:
+  0: body_a
+  1: body_b
+  2: block_pin
+  3: bushing
+  4: nut
+  5: knob
+  6: threaded_pin

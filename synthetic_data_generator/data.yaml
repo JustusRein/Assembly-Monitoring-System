@@ -1,0 +1,16 @@
+# Single-source dataset config.
+# Paths are relative to this file so the dataset works on any machine.
+# Point `path` at the folder that holds images/ and labels/.
+path: .
+train: images/train
+val: images/val
+test: images/test
+nc: 7
+names:
+  0: body_a
+  1: body_b
+  2: block_pin
+  3: bushing
+  4: nut
+  5: knob
+  6: threaded_pin
