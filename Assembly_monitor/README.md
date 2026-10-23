@@ -66,7 +66,7 @@ The window shows the camera view with detections, the current stage, what the sy
 | `v` | Mark the final product as operator-verified in the process log |
 | `0` | Reset the state machine to the start |
 | `1`–`7` | Jump to a stage (for testing, or to recover after a misread) |
-| `e` | Toggle redo mode — jump to a stage without marking it confirmed |
+| `e` | Toggle redo mode - jump to a stage without marking it confirmed |
 | `b` | Re-learn the empty bench. Use after deliberately changing the scene, otherwise the change is reported as a foreign object |
 | `p` | Pause / resume the preview rotation |
 | `,` `.` | Step the preview one frame back / forward |
