@@ -18,7 +18,7 @@ YOLO_MODEL_PATH = str(PROJECT_ROOT / "weights" / "best.pt")
 
 ## How to get it
 
-Download `best.pt` from the [Releases page](../../releases) and place it in this
+Download `best.pt` from the [Releases page](https://github.com/MehulTU/Assembly-Monitoring-System-V2.1/releases) and place it in this
 folder. Then:
 
 ```bash

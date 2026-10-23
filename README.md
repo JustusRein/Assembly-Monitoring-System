@@ -141,7 +141,7 @@ The thesis targets of workflow accuracy > 90 % and timing error < 10 % therefore
 | `runs/` | Ultralytics training output |
 | `venv/`, `__pycache__/` | Environment and build artefacts |
 
-The trained checkpoint is published on the [Releases page](../../releases).
+The trained checkpoint is published on the [Releases page](https://github.com/MehulTU/Assembly-Monitoring-System-V2.1/releases).
 
 ---
 
