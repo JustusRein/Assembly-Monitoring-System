@@ -1,4 +1,4 @@
-# `Assembly_monitor/` — the monitoring software
+# `Assembly_monitor/` :- the monitoring software
 
 This folder is the application itself. Everything else in the repository supports it: `scripts/` prepares datasets and trains detectors, `logs/` holds what the software recorded, `V21_validation_evidence_pack/` turns those logs into figures.
 
@@ -20,14 +20,14 @@ python Assembly_monitor/main.py            # run the live system
 
 Press **`q`** to quit.
 
-`check_setup.py` is the one to run first. It prints a MUST FIX / WORTH FIXING summary covering settings, the stage preview, position calibration, the body-pose tracker and wrong-part detection. Nothing is silently disabled — if something is not working it says so.
+`check_setup.py` is the one to run first. It prints a MUST FIX / WORTH FIXING summary covering settings, the stage preview, position calibration, the body-pose tracker and wrong-part detection. Nothing is silently disabled - if something is not working it says so.
 
 ## Before it will run
 
 | Needed | Where it goes | If missing |
 | --- | --- | --- |
-| Trained weights | `weights/best.pt` (path set by `YOLO_MODEL_PATH`) | Fatal — the detector cannot load |
-| A camera | `CAMERA_INDEX = 0` in `config/settings.py` | Fatal — "Could not open camera" |
+| Trained weights | `weights/best.pt` (path set by `YOLO_MODEL_PATH`) | Fatal - the detector cannot load |
+| A camera | `CAMERA_INDEX = 0` in `config/settings.py` | Fatal - "Could not open camera" |
 | Region of interest | `calibration/roi_config.json` | Runs, but processes the whole frame |
 | Stage preview frames | `STAGE_PREVIEW_DIR` in `config/settings.py` | Runs, preview panel is skipped |
 
@@ -56,7 +56,7 @@ STAGE_PREVIEW_DIR = r"D:\Thesis\..."   # change or the preview is skipped
 
 ## While it is running
 
-The window shows the camera view with detections, the current stage, what the system is still waiting for, and — when the frames are available — a rotating 3-D preview of the stage being built.
+The window shows the camera view with detections, the current stage, what the system is still waiting for, and when the frames are available, a rotating 3-D preview of the stage being built.
 
 | Key | Action |
 | --- | --- |
@@ -75,8 +75,8 @@ The window shows the camera view with detections, the current stage, what the sy
 
 | Output | Contents |
 | --- | --- |
-| `logs/T-01_*.csv` | Per-session event log — activity intervals and timing |
-| `logs/process/process_*.jsonl` | Structured process log — confirmed stages, transitions, durations, `WRONG_ORDER` warnings, session summary |
+| `logs/T-01_*.csv` | Per-session event log - activity intervals and timing |
+| `logs/process/process_*.jsonl` | Structured process log - confirmed stages, transitions, durations, `WRONG_ORDER` warnings, session summary |
 | `recordings/*.mp4` | Video, only while recording is on |
 
 The JSONL process log is the file the validation tooling reads. `analyze_v21_validation.py` turns it into the session summaries and tables in `validation_output/`.
@@ -90,13 +90,13 @@ Each subsystem is a package with a defined interface, so one can be replaced wit
 | Package | Responsibility |
 | --- | --- |
 | `acquisition/` | Camera interface and frame validation. `camera_factory.py` picks the backend, so the rest of the code never knows which camera is attached |
-| `processing/` | Turns pixels into observations — `motion_detector.py` (classical), `object_detector.py` (YOLO), `foreign_object_detector.py` |
+| `processing/` | Turns pixels into observations - `motion_detector.py` (classical), `object_detector.py` (YOLO), `foreign_object_detector.py` |
 | `decision/` | **The interpretation layer.** `assembly_state_machine.py` maps detections to stages, `position_validator.py` and `seat_finder.py` check placement, `event_detector.py` finds activity intervals |
 | `analytics/` | Session metrics from the event stream |
 | `storage/` | `process_log.py` (structured JSONL) and `session_logger.py` (CSV) |
 | `visualization/` | `display.py` (live window) and `stage_preview.py` (rotating stage view) |
-| `config/` | `settings.py` — every threshold and path in one file |
-| `tools/` | Calibration and measurement utilities — see below |
+| `config/` | `settings.py` - every threshold and path in one file |
+| `tools/` | Calibration and measurement utilities - see below |
 | `thesis_results/` | Detector metrics, resolution study and trial results |
 | `validation_output/` | Analysis output from the recorded process logs |
 
@@ -116,7 +116,7 @@ The detector reports which classes it sees and how many. The state machine compa
 
 A candidate stage only becomes the confirmed state when **at least 3 of the last 5 frames agree**, so one noisy frame can never move the process forward. Stages cannot be skipped: while the current stage is unconfirmed, evidence matching the next stage does nothing.
 
-> **The sequence can be overridden by a file.** If `assembly_sequence.json` exists at the path in `settings.py`, it replaces the built-in order entirely. If that file has the wrong order, the running system uses the wrong order regardless of the code. If it is missing, a warning is printed at startup and the built-in order is used. This is deliberate — it is what makes the method portable to a different product without editing code.
+> **The sequence can be overridden by a file.** If `assembly_sequence.json` exists at the path in `settings.py`, it replaces the built-in order entirely. If that file has the wrong order, the running system uses the wrong order regardless of the code. If it is missing, a warning is printed at startup and the built-in order is used. This is deliberate, it is what makes the method portable to a different product without editing code.
 
 ## Tools
 
@@ -129,7 +129,7 @@ A candidate stage only becomes the confirmed state when **at least 3 of the last
 | `tools/score_trial.py` | Score a recorded trial against a reference |
 | `tools/test_camera_resolution.py` | Check what resolutions the camera actually supports |
 | `analyze_v21_validation.py` | Build session summaries and tables from the process logs |
-| `check_setup.py` | Pre-flight check — run this first |
+| `check_setup.py` | Pre-flight check - run this first |
 
 ---
 
@@ -142,7 +142,7 @@ Two notes kept from development, because they record decisions that are still lo
 
 **The bug.** Showing `body_a` with both bushings at the start jumped straight to Stage_02 — Stage_01 was never confirmed. In practice the first thing the system waited for was *two* bushings.
 
-**Cause.** While the current stage was still unconfirmed, evidence that happened to match the *next* stage was allowed to advance the sequence. If both bushings were in view at the start — or the detector double-detected one — Stage_01 was bypassed entirely.
+**Cause.** While the current stage was still unconfirmed, evidence that happened to match the *next* stage was allowed to advance the sequence. If both bushings were in view at the start or the detector double-detected one — Stage_01 was bypassed entirely.
 
 **Fix.** A stage can no longer be skipped. While the current stage is unconfirmed, matching the next stage does nothing. Each stage must be confirmed in turn, in order.
 
@@ -176,7 +176,7 @@ then 2nd bushing        -> Stage_02
 <details>
 <summary><b>Next-stage 360° preview</b></summary>
 
-The preview column shows two rotating views: the stage currently being worked toward, and the one immediately after it. Both are driven by the same `StagePreviewPlayer` and share the `p`, `,` and `.` controls. At Stage_07 there is no next stage, so the single-preview layout is used. Missing preview frames are non-fatal — the panel is simply skipped.
+The preview column shows two rotating views: the stage currently being worked toward, and the one immediately after it. Both are driven by the same `StagePreviewPlayer` and share the `p`, `,` and `.` controls. At Stage_07 there is no next stage, so the single-preview layout is used. Missing preview frames are non-fatal - the panel is simply skipped.
 
 The preview does not touch the detector, the event detector or the state-transition logic.
 
