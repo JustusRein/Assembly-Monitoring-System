@@ -47,7 +47,7 @@ camera frame
    → confirmed stage + process log  timestamp, duration, WRONG_ORDER warnings
 ```
 
-The design decision that matters: **perception and interpretation are separate layers.** The detector only reports what it sees. A state machine decides what that means, driven by a sequence table rather than by code. Either side can be swapped without touching the other — which is what makes the method portable to a different product.
+The design decision that matters: **perception and interpretation are separate layers.** The detector only reports what it sees. A state machine decides what that means, driven by a sequence table rather than by code. Either side can be swapped without touching the other - which is what makes the method portable to a different product.
 
 A single noisy frame can never move the process state. That is what the 3-of-5 confirmation rule is for.
 
@@ -149,7 +149,7 @@ The trained checkpoint is published on the [Releases page](../../releases).
 
 | Repo | What it was |
 | --- | --- |
-| [V1](https://github.com/MehulTU/Assembly-Monitoring-System) | Classical computer vision — greyscale, background subtraction, morphology, contour motion score, temporal filter. It produced activity intervals and timing that worked. But every event carried the same label: `ACTIVE`. The system knew work was happening and not *which* work. That limitation is what motivated V2. |
+| [V1](https://github.com/MehulTU/Assembly-Monitoring-System) | Classical computer vision - greyscale, background subtraction, morphology, contour motion score, temporal filter. It produced activity intervals and timing that worked. But every event carried the same label: `ACTIVE`. The system knew work was happening and not *which* work. That limitation is what motivated V2. |
 | [V2](https://github.com/MehulTU/Assembly-Monitoring-System-V2) | The first YOLO pipeline. Object detection was added inside the existing modular architecture, which did not have to change - the point the architecture was designed for. |
 | **V2.1 (here)** | The assembly state machine, structured process logging, sequence-deviation warnings, the validation tooling and the thesis results. |
 
