@@ -2,11 +2,11 @@
 
 **A camera watches someone assembling a product by hand, and writes down what happened.**
 
-Which components are on the bench, which assembly stage the operator has reached, how long each stage took, and whether the steps were done in the right order — all of it recorded automatically, from one ordinary webcam.
+Which components are on the bench, which assembly stage the operator has reached, how long each stage took, and whether the steps were done in the right order - all of it recorded automatically, from one ordinary webcam.
 
 ![Component detection on held-out images](Assembly_monitor/thesis_results/detector/run/val_batch0_pred.jpg)
 
-*The detector on held-out images: seven component classes with confidence scores. This is only the first step — the system still has to work out what these detections* mean *in process terms.*
+*The detector on held-out images: seven component classes with confidence scores. This is only the first step - the system still has to work out what these detections* mean *in process terms.*
 
 Built for my M.Sc. thesis *AI-Supported Ergonomic and Productivity Analysis in Manual Assembly* at the Institute of Product Life Cycle Management (PLCM), Technische Universität Darmstadt.
 
@@ -22,7 +22,7 @@ python Assembly_monitor/check_setup.py     # tells you what is missing
 python Assembly_monitor/main.py            # run the live system
 ```
 
-You need Python 3.12, a webcam, and trained weights at `weights/best.pt` — these are **not in the repository**; see [`weights/`](weights) for the download.
+You need Python 3.12, a webcam, and trained weights at `weights/best.pt` - these are **not in the repository**; see [`weights/`](weights) for the download.
 
 Full operating instructions, keyboard controls and settings: **[`Assembly_monitor/README.md`](Assembly_monitor/README.md)**.
 
@@ -30,7 +30,7 @@ Full operating instructions, keyboard controls and settings: **[`Assembly_monito
 
 ## Why this exists
 
-Manual assembly stays human in small-batch, high-variety production, because a person adapts to a new product variant immediately and a machine does not. But that work gets measured by stopwatch and manual observation — neither continuous nor repeatable.
+Manual assembly stays human in small-batch, high-variety production, because a person adapts to a new product variant immediately and a machine does not. But that work gets measured by stopwatch and manual observation, neither continuous nor repeatable.
 
 So the situation is this: everything happening at the bench is completely visible, and none of it exists as data.
 
