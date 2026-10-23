@@ -1,0 +1,69 @@
+{
+  "split": "test",
+  "weights": "D:\\Thesis\\SOFTWARE V2.1 AI Final\\Assembly_monitor\\weights\\best.pt",
+  "data_yaml": "D:\\Thesis\\Blender\\synthetic_dataset\\subassembly\\data.yaml",
+  "imgsz": 640,
+  "overall": {
+    "precision": 0.8963749705209233,
+    "recall": 0.8514546125923877,
+    "mAP50": 0.9121277774138169,
+    "mAP50_95": 0.6970368620260399
+  },
+  "per_class": [
+    {
+      "class": "body_a",
+      "precision": 0.9419590881051544,
+      "recall": 0.8535564853556485,
+      "mAP50": 0.9516074886959186,
+      "mAP50_95": 0.7096040262782635
+    },
+    {
+      "class": "body_b",
+      "precision": 0.9805755432135139,
+      "recall": 0.9465379510553703,
+      "mAP50": 0.9911233583770088,
+      "mAP50_95": 0.7480335974530988
+    },
+    {
+      "class": "block_pin",
+      "precision": 0.9490495705168801,
+      "recall": 0.9391853929356399,
+      "mAP50": 0.9561182899458095,
+      "mAP50_95": 0.8057038223279482
+    },
+    {
+      "class": "bushing",
+      "precision": 0.8754284811127722,
+      "recall": 0.8784706970134548,
+      "mAP50": 0.9607528463720594,
+      "mAP50_95": 0.8315588536207994
+    },
+    {
+      "class": "nut",
+      "precision": 0.7958037201888468,
+      "recall": 0.9230769230769231,
+      "mAP50": 0.8966818181818179,
+      "mAP50_95": 0.54599936989595
+    },
+    {
+      "class": "knob",
+      "precision": 0.99358289255709,
+      "recall": 1.0,
+      "mAP50": 0.995,
+      "mAP50_95": 0.8664316742899691
+    },
+    {
+      "class": "threaded_pin",
+      "precision": 0.7382254979522057,
+      "recall": 0.41935483870967744,
+      "mAP50": 0.6336106403241042,
+      "mAP50_95": 0.3719266903162498
+    }
+  ],
+  "thesis_validation_reference": {
+    "precision": 0.942,
+    "recall": 0.8918,
+    "mAP50": 0.9578,
+    "mAP50_95": 0.7655
+  }
+}

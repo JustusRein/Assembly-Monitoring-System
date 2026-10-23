@@ -1,0 +1,7 @@
+metric,value_percent
+precision,89.15
+recall,86.24
+mAP50,92.54
+mAP50_95,69.90
+test_images,1319
+test_instances,2922

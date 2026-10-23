@@ -1,0 +1,12 @@
+﻿trial_id,elapsed_s,warning_type,current_stage,message,observed
+T2-01,38.25,WRONG_ORDER,Stage_03,Wrong order: parts for a later stage were detected before completing 'Stage_03'.,body_a x1; bushing x1; nut x1
+T2-03,63.58,WRONG_ORDER,Stage_03,Wrong order: parts for a later stage were detected before completing 'Stage_03'.,bushing x1; nut x1
+process_20261009_163818.jsonl,87.0,WRONG_ORDER,Stage_01,Wrong order: parts for a later stage were detected before completing 'Stage_01'.,body_a x1; nut x1
+process_20261009_163818.jsonl,87.94,WRONG_ORDER,Stage_01,Wrong order: parts for a later stage were detected before completing 'Stage_01'.,block_pin x1
+process_20261009_163818.jsonl,88.46,WRONG_ORDER,Stage_01,Wrong order: parts for a later stage were detected before completing 'Stage_01'.,body_a x1; nut x1
+process_20261009_163818.jsonl,89.78,WRONG_ORDER,Stage_01,Wrong order: parts for a later stage were detected before completing 'Stage_01'.,body_a x1; nut x1
+process_20261009_163818.jsonl,137.24,WRONG_ORDER,Stage_02,Wrong order: parts for a later stage were detected before completing 'Stage_02'.,threaded_pin x1
+process_20261009_163818.jsonl,137.8,WRONG_ORDER,Stage_02,Wrong order: parts for a later stage were detected before completing 'Stage_02'.,threaded_pin x1
+process_20261009_163818.jsonl,140.26,WRONG_ORDER,Stage_02,Wrong order: parts for a later stage were detected before completing 'Stage_02'.,threaded_pin x1
+process_20261009_163818.jsonl,141.85,WRONG_ORDER,Stage_02,Wrong order: parts for a later stage were detected before completing 'Stage_02'.,knob x1; threaded_pin x1
+process_20261009_163818.jsonl,153.02,WRONG_ORDER,Stage_02,Wrong order: parts for a later stage were detected before completing 'Stage_02'.,block_pin x1; body_a x1; body_b x1

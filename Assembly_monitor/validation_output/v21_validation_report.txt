@@ -1,0 +1,74 @@
+==============================================================================
+V2.1 SYSTEM VALIDATION  -  ANALYSIS OUTPUT
+==============================================================================
+
+  Generated      2026-10-09T16:42:04
+  Trials         4 (0 nominal, 0 error-injection)
+  Complete logs used for nominal metrics: 0 of 0 nominal trials.
+  Complete logs used for error metrics: 0 of 0 error-injection trials.
+
+WHAT IS BEING MEASURED, AND AGAINST WHAT
+  Independent ground-truth rows scored: 0 of 4 logs.
+  WARNING: ground truth is missing or incomplete for one or more logs.
+  Do not describe aggregate outputs as accuracy until the trials.csv
+  fields are completed and the report is regenerated.
+
+1  STAGE RECOGNITION
+  stage count agreement    0 of 0  (--)
+  correct stage sequence   --
+  Stage_07 transition logged --
+  Note: Stage_07 transition, full target-combination observation, and
+  operator final-product verification are distinct measures.
+  stages over-reported     0   (system claimed a stage that was not completed)
+  stages under-reported    0   (operator completed a stage the system did not confirm)
+
+  These two errors are not equivalent and should not be averaged.
+  An over-report is a false confirmation: the system certifies work
+  that was not done, and the confirmed baseline carries that mistake
+  into every later stage. An under-report only delays the operator.
+
+2  PROCESS TIMING
+  build time  mean -- s   median -- s   sd -- s
+              min  -- s   max -- s
+
+  per stage (nominal trials only):
+    stage        n     mean   median      min      max
+
+3  ERROR HANDLING
+  introduced errors detected   0 of 0  (--)
+  mean warning latency among detected, time-stamped trials -- s
+  (trials without error_elapsed_s or without the expected warning are not in the latency mean)
+  warning records in nominal runs 0
+  nominal trials with >=1 warning 0
+  (warning records are not automatically false alarms; inspect warning types)
+
+
+4  WHAT THESE NUMBERS DO AND DO NOT COVER
+  They describe this system, on this assembly, on this bench, under
+  the lighting recorded in trials.csv, operated by the people listed
+  there. They are a measurement of the complete pipeline end to end -
+  detection, state machine, and the operator-facing output together -
+  not of the YOLO detector in isolation.
+
+  The trial count is small. With single-digit trials a rate such as
+  100 % means 'no failure was observed in n attempts', not 'failure
+  cannot occur'. Report n alongside every percentage.
+
+  Position validation is a separate claim. Real-bench wrong-hole trials
+  can only be scored if position validation was enabled, body tracking
+  remained valid, and each actual hole placement was independently
+  recorded. Trials run while validation was disabled or paused do not
+  validate wrong-hole detection. Synthetic detector metrics and the
+  synthetic POS-FEAS-01 observability study are separate from real-bench
+  end-to-end performance.
+
+FILES
+  v21_session_summary.csv   one row per trial
+  v21_stage_timing.csv      every stage transition and its duration
+  v21_error_events.csv      every warning raised
+  v21_metrics.json          everything, machine-readable
+  tab_v21_error_handling.tex
+  tab_v21_stage_timing.tex
+  tab_v21_summary.tex
+  tab_v21_trials.tex
+==============================================================================

@@ -1,0 +1,20 @@
+# Assembly Monitor V2.1 — runtime and tooling dependencies
+# Python 3.12
+#
+# Install with:
+#     pip install -r requirements.txt
+#
+# PyTorch is pulled in by ultralytics. For GPU support install the CUDA
+# build of torch first, following https://pytorch.org/get-started/locally/
+
+# --- core runtime (Assembly_monitor/) ---
+ultralytics>=8.3.0
+opencv-python>=4.10.0
+numpy>=1.26.0
+torch>=2.3.0
+
+# --- analysis, figures and dataset tooling (scripts/, V21_validation_evidence_pack/) ---
+matplotlib>=3.8.0
+pandas>=2.2.0
+PyYAML>=6.0
+scikit-image>=0.22.0

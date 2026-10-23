@@ -1,4 +1,6 @@
-path: C:\Users\mehul\Desktop\Thesis\SOFTWARE V2 AI PROTOTYPE\datasets\yolo_dataset_v1
+# Early two-class development dataset — see README.md in this folder.
+# Path is relative to this file so the dataset works on any machine.
+path: .
 train: images/train
 val: images/val
 test: images/test

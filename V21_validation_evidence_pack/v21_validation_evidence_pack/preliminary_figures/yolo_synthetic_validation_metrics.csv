@@ -1,0 +1,5 @@
+﻿metric,value,source
+Precision,0.942,"Thesis Table 5.9; synthetic validation split, 560 images"
+Recall,0.8918,"Thesis Table 5.9; synthetic validation split, 560 images"
+mAP@0.50,0.9578,"Thesis Table 5.9; synthetic validation split, 560 images"
+mAP@0.50:0.95,0.7655,"Thesis Table 5.9; synthetic validation split, 560 images"

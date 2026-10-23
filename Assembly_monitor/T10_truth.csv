@@ -1,0 +1,19 @@
+event_type,label,true_time_s,notes
+# ---------------------------------------------------------------------
+# Fill this in from the RECORDED VIDEO, not from the software output.
+# true_time_s = seconds from the moment main.py started.
+#
+# event_type = stage  ->  a real assembly step you actually completed
+# event_type = error  ->  a mistake you deliberately introduced
+#                         (label it WRONG_PART, WRONG_ORDER or UNKNOWN_OBJECT)
+#
+# Delete the example rows below and enter your own.
+# Lines starting with # are ignored.
+# ---------------------------------------------------------------------
+stage,Stage_01,19.55,
+stage,Stage_02,26.75,
+stage,Stage_03,38.20,
+stage,Stage_04,44.00,
+stage,Stage_05,51.25,
+stage,Stage_06,73.55,
+stage,Stage_07,90.13,

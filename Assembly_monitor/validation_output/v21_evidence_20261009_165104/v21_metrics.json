@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-10-09T16:51:08",
+  "root": "D:\\Thesis\\SOFTWARE V2.1 AI Final\\Assembly_monitor",
+  "process_dir": "D:\\Thesis\\SOFTWARE V2.1 AI Final\\Assembly_monitor\\logs\\process",
+  "logs_analysed": 5,
+  "state_records": 95,
+  "stage_transition_records": 28,
+  "warning_records": 13,
+  "explicit_warning_events": 13,
+  "ground_truth_rows": 3,
+  "figures": [
+    "fig_v21_transition_timeline.png",
+    "fig_v21_transition_timeline.pdf",
+    "fig_v21_session_event_counts.png",
+    "fig_v21_session_event_counts.pdf",
+    "fig_v21_warning_type_counts.png",
+    "fig_v21_warning_type_counts.pdf",
+    "fig_v21_session_durations.png",
+    "fig_v21_session_durations.pdf",
+    "fig_synthetic_dataset_asset_inventory.png",
+    "fig_synthetic_dataset_asset_inventory.pdf"
+  ]
+}

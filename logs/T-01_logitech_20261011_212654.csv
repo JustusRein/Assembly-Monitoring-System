@@ -1,0 +1,12 @@
+# ASSEMBLY MONITORING SESSION
+# Session start,2026-10-11 21:26:54
+# Trial ID,T-01
+# Camera type,logitech
+# Resolution,1280x720
+# Lighting,Normal
+# Sensor height cm,TBD
+# Sensor angle deg,TBD
+
+event_id,event_type,detected_object,start_time,end_time,duration_sec,trial_id
+1,WARNING (WRONG_PART),"block_pin:1,body_a:1",21:27:08,21:27:08,0.000,T-01
+2,ACTIVE,,21:27:05,21:27:08,2.792,T-01

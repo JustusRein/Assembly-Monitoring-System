@@ -1,0 +1,12 @@
+# ASSEMBLY MONITORING SESSION
+# Session start,2026-09-06 19:56:55
+# Trial ID,T-01
+# Camera type,logitech
+# Resolution,640x480
+# Lighting,Normal
+# Sensor height cm,TBD
+# Sensor angle deg,TBD
+
+event_id,event_type,detected_object,start_time,end_time,duration_sec,trial_id
+1,WARNING (WRONG_PART),power_adapter:1,19:56:58,19:56:58,0.000,T-01
+2,ACTIVE,,19:57:03,19:57:04,0.642,T-01

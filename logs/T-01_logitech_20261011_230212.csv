@@ -1,0 +1,20 @@
+# ASSEMBLY MONITORING SESSION
+# Session start,2026-10-11 23:02:12
+# Trial ID,T-01
+# Camera type,logitech
+# Resolution,1280x720
+# Lighting,Normal
+# Sensor height cm,TBD
+# Sensor angle deg,TBD
+
+event_id,event_type,detected_object,start_time,end_time,duration_sec,trial_id
+1,WARNING (WRONG_PART),block_pin:1,23:02:18,23:02:18,0.000,T-01
+2,WARNING (WRONG_PART),block_pin:1,23:02:25,23:02:25,0.000,T-01
+3,WARNING (WRONG_PART),block_pin:1,23:02:26,23:02:26,0.000,T-01
+4,WARNING (WRONG_PART),block_pin:1,23:02:31,23:02:31,0.000,T-01
+5,ACTIVE (block_pin),block_pin,23:02:30,23:02:33,2.370,T-01
+6,ACTIVE,,23:02:35,23:02:38,2.569,T-01
+7,WARNING (FOREIGN_OBJECT),,23:02:39,23:02:39,0.000,T-01
+8,ACTIVE,,23:02:43,23:02:46,3.151,T-01
+9,WARNING (FOREIGN_OBJECT),,23:02:47,23:02:47,0.000,T-01
+10,WARNING (FOREIGN_OBJECT),,23:02:48,23:02:48,0.000,T-01

@@ -1,0 +1,26 @@
+﻿# trials.csv - INDEPENDENT GROUND TRUTH. Complete one row per validation run.
+#
+# log_file                   JSONL filename (pre-filled; do not change)
+# trial_id                   e.g. T2-01
+# date                       DD.MM.YYYY
+# operator                   initials or anonymised code
+# lighting                   describe actual lighting (normal/bright/dim + note)
+# condition                  nominal | induced_wrong_part | induced_wrong_order | induced_wrong_position
+# true_stages_completed      number of stages actually completed correctly, 0-7
+# true_stage_route           actual stage route, e.g. Stage_01>Stage_02>Stage_03
+#                            leave blank only if you did not record the route
+# error_introduced_at_stage  stage at which the deliberate error was introduced
+# error_elapsed_s            seconds from session start when the error was introduced;
+#                            required to calculate response latency and to score a
+#                            warning as occurring after the introduced error
+# notes                      deviations, camera movement, obstruction, etc.
+#
+# IMPORTANT: condition and true_stages_completed are intentionally BLANK in the
+# template. Do not report accuracy until you fill them from your own observation.
+# Do not label wrong-position trials as successful if position validation was disabled
+# or if the system displayed BODY NOT TRACKED / POSITION CHECK PAUSED.
+
+log_file,trial_id,date,operator,lighting,condition,true_stages_completed,true_stage_route,error_introduced_at_stage,error_elapsed_s,notes
+process_20261009_160234.jsonl,T2-01,,,,,,,,,
+process_20261009_161029.jsonl,T2-02,,,,,,,,,
+process_20261009_161525.jsonl,T2-03,,,,,,,,,

@@ -1,0 +1,70 @@
+HELD-OUT TEST SPLIT EVALUATION
+======================================================================
+
+  weights   D:\Thesis\SOFTWARE V2.1 AI Final\Assembly_monitor\weights\best.pt
+  data      D:\Thesis\Blender\synthetic_dataset\subassembly\data.yaml
+  split     test
+
+RESULT
+----------------------------------------------------------------------
+  Precision        89.64 %
+  Recall           85.15 %
+  mAP@0.50         91.21 %
+  mAP@0.50:0.95    69.70 %
+
+COMPARED WITH THE VALIDATION SPLIT ALREADY IN THE THESIS
+----------------------------------------------------------------------
+  Precision        val 94.20 %   test 89.64 %   (-4.56 pp)
+  Recall           val 89.18 %   test 85.15 %   (-4.03 pp)
+  mAP@0.50         val 95.78 %   test 91.21 %   (-4.57 pp)
+  mAP@0.50:0.95    val 76.55 %   test 69.70 %   (-6.85 pp)
+
+PER CLASS
+----------------------------------------------------------------------
+  class                P       R    mAP50  mAP50-95
+  body_a           94.20   85.36    95.16     70.96
+  body_b           98.06   94.65    99.11     74.80
+  block_pin        94.90   93.92    95.61     80.57
+  bushing          87.54   87.85    96.08     83.16
+  nut              79.58   92.31    89.67     54.60
+  knob             99.36  100.00    99.50     86.64
+  threaded_pin     73.82   41.94    63.36     37.19
+
+  Best localised class:  knob (mAP@0.50:0.95 86.64 %)
+  Weakest class:         threaded_pin (mAP@0.50:0.95 37.19 %)
+
+WHAT THIS RESULT IS
+----------------------------------------------------------------------
+  An INDEPENDENT measurement of the detector within the synthetic
+  data distribution. These 560 images were not used for training
+  and not used to choose the training configuration, so this is a
+  genuine held-out result and not a second reading of the
+  validation split.
+
+WHAT THIS RESULT IS NOT
+----------------------------------------------------------------------
+  It is NOT evidence of performance on the physical workstation.
+  Both splits are rendered images. Surface finish, illumination,
+  sensor response, motion blur and hand occlusion differ on the
+  real camera. This is the same argument already made in Section
+  6.5 of the thesis, and this result does not change it.
+
+WHERE IT GOES IN THE THESIS
+----------------------------------------------------------------------
+  Section 6.2.2 (Object-detection results), after Table 6.3.
+  Update Table 6.10, row 'Independent detector test', from
+    'Prepared; test result not reported'
+  to
+    'Evaluated on the held-out 560-image synthetic test split'.
+
+FILES WRITTEN
+----------------------------------------------------------------------
+  confusion_matrix.png
+  confusion_matrix_counts.png
+  pr_curve.png
+  test_metrics.png
+  test_metrics.tex
+  test_per_class.tex
+  test_results.json
+  val_vs_test.png
+  val_vs_test.tex

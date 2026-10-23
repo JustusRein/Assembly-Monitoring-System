@@ -1,0 +1,79 @@
+{
+  "_README": [
+    "This file is normally WRITTEN FOR YOU by tools/calibrate_position_anchors.py.",
+    "Edit it by hand only if you cannot run that tool.",
+    "",
+    "The two 'anchor' values are the seat centres in NORMALISED image",
+    "coordinates: x and y as a fraction of frame width and height, so the",
+    "file survives a resolution change. The values below are PLACEHOLDERS",
+    "and will not match your camera - replace them.",
+    "",
+    "SCOPE: these are image coordinates. They are valid only while the",
+    "assembly sits in a fixed orientation on the fixture and the camera",
+    "does not move. Re-calibrate after any camera or fixture change."
+  ],
+
+  "assembly": "subassembly",
+  "camera_elevation_deg": 35,
+  "frame_size": [640, 480],
+
+  "backend": "geometric",
+  "_backend_options": {
+    "geometric": "nearest calibrated seat anchor. No training needed, fully interpretable, names which hole is wrong. Use this first.",
+    "classifier": "the trained correct/wrong_position model decides. Needs train_position_model.py to have been run.",
+    "both": "geometric and classifier must AGREE before a stage is held back. Use this for the recorded validation runs."
+  },
+
+  "seats": {
+    "Seat_1": {
+      "anchor": [0.45, 0.60],
+      "class": "bushing",
+      "label": "1st hole",
+      "description": "the hole the FIRST bushing goes into"
+    },
+    "Seat_2": {
+      "anchor": [0.60, 0.64],
+      "class": "bushing",
+      "label": "2nd hole",
+      "description": "the hole the SECOND bushing goes into"
+    }
+  },
+
+  "stage_requirements": {
+    "Stage_01": [
+      {"seat": "Seat_1", "class": "bushing", "ordinal": 1}
+    ],
+    "Stage_02": [
+      {"seat": "Seat_1", "class": "bushing", "ordinal": 1},
+      {"seat": "Seat_2", "class": "bushing", "ordinal": 2}
+    ]
+  },
+  "_stage_requirements_note": "Stages not listed here have no seat requirement; the validator reports NOT_APPLICABLE and never blocks them.",
+
+  "max_anchor_distance_px": 45.0,
+  "_max_anchor_distance_px_note": "A detection further than this from both anchors is a loose part, not a seated one. The calibration tool derives it as 45% of the measured seat separation so the two acceptance regions cannot overlap.",
+
+  "seat_memory_sec": 3.0,
+  "min_confidence": 0.45,
+  "stable_frames_wrong": 8,
+  "stable_frames_correct": 8,
+  "_stability_note": "Stability governs whether the OPERATOR is warned, never whether a stage may confirm. Any wrong verdict defers a confirmation immediately - a deferred stage costs one frame, a wrongly confirmed one poisons the baseline every later stage is judged against.",
+
+  "require_seat_evidence": true,
+  "_require_seat_evidence_note": "When true, a stage whose required seat has never once been seen filled is held back rather than confirmed on class counts alone. This is what makes 'Stage_01 must not confirm with the bushing in the wrong hole' true in both directions. Turn it off only if the detector genuinely cannot see a seated bushing; the manual stage keys [1]-[7] remain the documented override.",
+
+  "classifier": {
+    "model_path": "",
+    "input_size": 96,
+    "crop_margin_px": 80,
+    "min_confidence": 0.75,
+    "correct_label": "correct",
+    "wrong_label": "wrong_position"
+  },
+
+  "provenance": {
+    "feasibility_experiment": "POS-FEAS-01",
+    "cad_seat_separation_mm": 18.0,
+    "feasibility_note": "POS-FEAS-01 is a synthetic CAD observability study (3.38% seat-region change at 35 deg). It is NOT a measurement of real-camera accuracy. No accuracy figure may be quoted for this feature until a labelled real-camera test set has been measured."
+  }
+}

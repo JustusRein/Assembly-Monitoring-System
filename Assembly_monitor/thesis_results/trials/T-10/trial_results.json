@@ -1,0 +1,202 @@
+{
+  "trial": "T-10",
+  "log": "logs\\process\\process_20261012_130923.jsonl",
+  "truth": "T10_truth.csv",
+  "tolerance_s": 3.0,
+  "response_window_s": 15.0,
+  "time_offset_s": 0.0,
+  "time_offset_note": "none (ground-truth times already in program time)",
+  "transitions": [
+    {
+      "stage": "Stage_01",
+      "reference_s": 19.55,
+      "system_s": 10.526,
+      "latency_s": -9.024000000000001,
+      "status": "out of tolerance"
+    },
+    {
+      "stage": "Stage_02",
+      "reference_s": 26.75,
+      "system_s": 25.735,
+      "latency_s": -1.0150000000000006,
+      "status": "correct"
+    },
+    {
+      "stage": "Stage_03",
+      "reference_s": 38.2,
+      "system_s": 35.321,
+      "latency_s": -2.879000000000005,
+      "status": "correct"
+    },
+    {
+      "stage": "Stage_04",
+      "reference_s": 44.0,
+      "system_s": 39.951,
+      "latency_s": -4.0489999999999995,
+      "status": "out of tolerance"
+    },
+    {
+      "stage": "Stage_05",
+      "reference_s": 51.25,
+      "system_s": 49.774,
+      "latency_s": -1.475999999999999,
+      "status": "correct"
+    },
+    {
+      "stage": "Stage_06",
+      "reference_s": 73.55,
+      "system_s": 73.133,
+      "latency_s": -0.4170000000000016,
+      "status": "correct"
+    },
+    {
+      "stage": "Stage_07",
+      "reference_s": 90.13,
+      "system_s": 88.23,
+      "latency_s": -1.8999999999999915,
+      "status": "correct"
+    }
+  ],
+  "durations": [
+    {
+      "step": "Stage_01 to Stage_02",
+      "reference_s": 7.199999999999999,
+      "system_s": 15.209,
+      "error_pct": 111.23611111111114
+    },
+    {
+      "step": "Stage_02 to Stage_03",
+      "reference_s": 11.450000000000003,
+      "system_s": 9.585999999999999,
+      "error_pct": 16.279475982532784
+    },
+    {
+      "step": "Stage_03 to Stage_04",
+      "reference_s": 5.799999999999997,
+      "system_s": 4.630000000000003,
+      "error_pct": 20.172413793103363
+    },
+    {
+      "step": "Stage_04 to Stage_05",
+      "reference_s": 7.25,
+      "system_s": 9.823,
+      "error_pct": 35.4896551724138
+    },
+    {
+      "step": "Stage_05 to Stage_06",
+      "reference_s": 22.299999999999997,
+      "system_s": 23.358999999999995,
+      "error_pct": 4.748878923766806
+    },
+    {
+      "step": "Stage_06 to Stage_07",
+      "reference_s": 16.58,
+      "system_s": 15.097000000000008,
+      "error_pct": 8.944511459589807
+    }
+  ],
+  "errors": [],
+  "spurious_transitions": [],
+  "false_warnings": [
+    {
+      "type": "warning",
+      "schema_version": 2,
+      "time": "2026-10-12T13:10:15.426",
+      "elapsed_s": 51.894,
+      "warning_type": "FOREIGN_OBJECT",
+      "message": "Unrecognised object in the work area. Remove anything that is not part of this assembly.",
+      "current_stage": null,
+      "observed": {},
+      "combination_id": "empty"
+    },
+    {
+      "type": "warning",
+      "schema_version": 2,
+      "time": "2026-10-12T13:10:20.787",
+      "elapsed_s": 57.255,
+      "warning_type": "FOREIGN_OBJECT",
+      "message": "Unrecognised object in the work area. Remove anything that is not part of this assembly.",
+      "current_stage": null,
+      "observed": {},
+      "combination_id": "empty"
+    },
+    {
+      "type": "warning",
+      "schema_version": 2,
+      "time": "2026-10-12T13:10:26.220",
+      "elapsed_s": 62.687,
+      "warning_type": "FOREIGN_OBJECT",
+      "message": "Unrecognised object in the work area. Remove anything that is not part of this assembly.",
+      "current_stage": null,
+      "observed": {},
+      "combination_id": "empty"
+    },
+    {
+      "type": "warning",
+      "schema_version": 2,
+      "time": "2026-10-12T13:10:30.935",
+      "elapsed_s": 67.403,
+      "warning_type": "FOREIGN_OBJECT",
+      "message": "Unrecognised object in the work area. Remove anything that is not part of this assembly.",
+      "current_stage": null,
+      "observed": {},
+      "combination_id": "empty"
+    }
+  ],
+  "summary": {
+    "reference_stages": 7,
+    "correct": 5,
+    "out_of_tolerance": 2,
+    "missed": 0,
+    "spurious": 0,
+    "workflow_accuracy_pct": 71.42857142857143,
+    "mean_abs_latency_s": 1.5373999999999994,
+    "mean_timing_error_pct": 32.81184107375295,
+    "error_episodes": 0,
+    "errors_detected": 0,
+    "mean_response_s": null,
+    "false_warnings": 4
+  },
+  "session_summary": {
+    "type": "session_end",
+    "schema_version": 2,
+    "session_id": "20261012_130923",
+    "time": "2026-10-12T13:10:54",
+    "total_time_s": 90.639,
+    "build_start_s": null,
+    "build_end_s": null,
+    "build_time_s": null,
+    "states_observed": 18,
+    "known_states": 2,
+    "unknown_states": 16,
+    "invalid_states": 0,
+    "warning_count": 4,
+    "stage_transition_count": 7,
+    "goal_combination_id": "block_pin1-body_a1-body_b1-bushing2-knob1-nut1-threaded_pin1",
+    "goal_observed": false,
+    "final_product_verified": false,
+    "verification": null,
+    "eligible_for_learning": false,
+    "path": [
+      "empty",
+      "body_a1",
+      "body_a1-bushing1",
+      "body_a1",
+      "empty",
+      "body_a1-bushing2",
+      "body_a1",
+      "empty",
+      "body_a1-body_b1",
+      "block_pin1-body_a1-body_b1",
+      "block_pin1-body_b1",
+      "empty",
+      "body_b1",
+      "body_a1-nut1",
+      "empty",
+      "threaded_pin1",
+      "empty",
+      "body_a1"
+    ],
+    "note": null
+  }
+}

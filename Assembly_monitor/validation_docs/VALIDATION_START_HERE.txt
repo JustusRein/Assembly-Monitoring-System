@@ -1,0 +1,53 @@
+V2.1 VALIDATION — START HERE (UPDATED 09 OCT 2026)
+
+FILES IN THIS PACK
+- analyze_v21_validation.py: corrected analyser; install in Assembly_monitor root.
+- test_analyze_v21_validation.py: analyser smoke tests; keep beside the analyser.
+- V21_VALIDATION_PACK_REVISED.md: corrected run plan and LaTeX chapter skeleton.
+- INSTALL_VALIDATION_FILES.ps1: makes a backup and copies files into place.
+
+IMPORTANT
+- EXAMPLE_report.txt is based on synthetic fixtures, not real bench trials. Do not cite its 100% rates or timing numbers.
+- Position validation must remain disabled/not scored while real-camera body tracking is paused or the hole markers are misaligned.
+- The analyser now reads the logger's structured stage_transition records to derive the stage route. It also reports Stage_07 transition separately from final component-combination observation.
+- The error table/graph show total versus scored trials; trials without error_elapsed_s remain unscored instead of being counted as misses.
+- A sample archived process log had seven stage transitions but goal_observed=false and build_time_s=null. This is why the analysis keeps those quantities separate. It is a logger-compatibility check, not a validation result.
+
+INSTALL
+1. Extract this ZIP into a new folder, for example Downloads\V21_VALIDATION_CORRECTED_PACK_UPDATED.
+2. Open PowerShell and run:
+   powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\Downloads\V21_VALIDATION_CORRECTED_PACK_UPDATED\INSTALL_VALIDATION_FILES.ps1"
+   If you extracted it elsewhere, substitute that actual path.
+3. The installer backs up existing analyser/test files and copies the corrected script + test beside each other in:
+   D:\Thesis\SOFTWARE V2.1 AI Final\Assembly_monitor\
+   It copies the guide and chapter skeleton into Assembly_monitor\validation_docs\.
+
+SMOKE TESTS (ANALYSER ONLY; NOT CAMERA ACCURACY)
+cd "D:\Thesis\SOFTWARE V2.1 AI Final\Assembly_monitor"
+.\venv\Scripts\python.exe -m unittest test_analyze_v21_validation.py -v
+Six tests should pass. If not, stop and preserve the full error message.
+
+VALIDATION WORKFLOW
+1. Close the monitor. Back up the JSONL process logs and move old/demo top-level JSONL files out of logs\process. Do not delete them. Move any old validation_output folder aside too, so stale trials.csv cannot be reused.
+2. Run one short pilot, end with q, and inspect the JSONL. Confirm stage_transition rows exist when the UI advances stages and warning_type matches real warning types. Archive the pilot separately so it is not included in the formal results.
+3. Record five complete nominal builds with camera/light/fixture unchanged. Then record two wrong-part and two wrong-order runs only if the UI/logger actually records those warnings. Do not score wrong-position trials while position validation is disabled, paused or misaligned.
+4. Press q at the end of every run. Press v only for a correctly completed final product when that action is intended.
+5. Run analyze_v21_validation.py once after the official runs. Fill validation_output\trials_TEMPLATE.csv using independent ground truth; save as validation_output\trials.csv. Then run the analyser again.
+6. Check the report and CSVs manually before using any numbers. Each rate must show x/n. Missing error_elapsed_s means detection latency is unscored. A logged Stage_07 transition is not, by itself, evidence that the final component combination was visually observed.
+
+OUTPUTS (GENERATED WHEN DATA SUPPORT THEM)
+validation_output\v21_session_summary.csv
+validation_output\v21_stage_timing.csv
+validation_output\v21_error_events.csv
+validation_output\v21_metrics.json
+validation_output\v21_validation_report.txt
+validation_output\tab_v21_summary.tex
+validation_output\tab_v21_trials.tex
+validation_output\tab_v21_stage_timing.tex
+validation_output\tab_v21_error_handling.tex
+validation_output\fig_stage_timeline.pdf and .png
+validation_output\fig_stage_durations.pdf and .png
+validation_output\fig_build_times.pdf and .png (only with at least two valid build_time_s values)
+validation_output\fig_error_detection.pdf and .png (only when eligible labelled error trials exist)
+
+Copy the complete validation_output folder next to the thesis main .tex file if using the supplied LaTeX paths. The analyser's generated figures/results are not proof of system accuracy unless the logs and ground-truth labels were checked.

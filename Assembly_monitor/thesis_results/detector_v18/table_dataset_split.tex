@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+\centering
+\caption{Composition of the combined synthetic training dataset used to train the deployed detector. Each source folder was split 60/20/20 into training, validation and test partitions before combination; the test partition was held out from both training and validation.}
+\label{tab:dataset_split}
+\begin{tabular}{lrrrr}
+\hline
+Source set & Train & Validation & Test & Total \\
+\hline
+synthetic\_dataset & 840 & 280 & 280 & 1400 \\
+subassembly & 840 & 280 & 280 & 1400 \\
+addon\_single\_fullrot & 810 & 277 & 277 & 1364 \\
+subassembly\_addon\_fullrot & 802 & 271 & 274 & 1347 \\
+variants\_fullrot & 624 & 208 & 208 & 1040 \\
+\hline
+\textbf{Total} & \textbf{3916} & \textbf{1316} & \textbf{1319} & \textbf{6551} \\
+\hline
+\end{tabular}
+\end{table}

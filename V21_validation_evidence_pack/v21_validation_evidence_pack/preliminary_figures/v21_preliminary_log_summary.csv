@@ -1,0 +1,4 @@
+﻿log_file,time,states,transitions,warnings,interpretation
+process_20261009_160234.jsonl,16:02:34,14,7,1,Earlier pilot; test condition not confirmed from the supplied notes.
+process_20261009_161029.jsonl,16:10:29,6,2,0,Unknown object was not detected; run reached Stage_02 only.
+process_20261009_161525.jsonl,16:15:25,12,3,1,WRONG_ORDER warning reported for nut before Stage_03 was complete.

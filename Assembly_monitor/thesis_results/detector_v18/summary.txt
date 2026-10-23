@@ -1,0 +1,28 @@
+DETECTOR EVALUATION - deployed model, correct test split
+======================================================================
+weights            D:\Thesis\SOFTWARE V2.1 AI Final\Assembly_monitor\weights\best.pt
+sha256             A0D81E31F540494BEA39904FCF2A47A5130F7F56247BD345EC86688D48D5A312
+data yaml          D:\Thesis\Blender\synthetic_dataset\data_combined_v18.yaml
+recorded in ckpt   data=D:\Thesis\Blender\synthetic_dataset\data_combined_v18.yaml  epochs=60
+inference imgsz    640
+
+DATASET
+  train            3916 images, 8714 instances
+  validation       1316 images, 2938 instances
+  test (held out)  1319 images, 2922 instances
+  total            6551 images
+
+TEST-SPLIT PERFORMANCE
+  Precision        89.15 %
+  Recall           86.24 %
+  mAP@0.50         92.54 %
+  mAP@0.50:0.95    69.90 %
+
+PER CLASS
+  body_a         inst     0   P  93.80   R  93.96   mAP50  97.49   mAP50-95  70.06
+  body_b         inst     0   P  90.56   R  81.97   mAP50  92.08   mAP50-95  61.61
+  block_pin      inst     0   P  83.63   R  87.96   mAP50  92.35   mAP50-95  74.31
+  bushing        inst     0   P  86.78   R  89.70   mAP50  94.01   mAP50-95  74.80
+  nut            inst     0   P  85.87   R  88.39   mAP50  95.04   mAP50-95  68.63
+  knob           inst     0   P  93.85   R  91.15   mAP50  95.55   mAP50-95  75.34
+  threaded_pin   inst     0   P  89.55   R  70.56   mAP50  81.29   mAP50-95  64.59

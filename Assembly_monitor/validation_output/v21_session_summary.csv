@@ -1,0 +1,5 @@
+﻿trial_id,log_file,date,operator,lighting,condition,total_time_s,build_time_s,states_observed,stages_reported,stages_true,true_stage_route,stage_count_agrees,over_reported,under_reported,sequence_correct,route,error_elapsed_s,goal_reached,goal_combination_observed,final_verified,warnings_total,wrong_part,wrong_order,wrong_position,expected_warning,induced_error_detected,response_time_s,log_complete,notes
+T2-01,process_20261009_160234.jsonl,,,,unclassified,73.51,,14,7,,,,,,,Stage_01 > Stage_02 > Stage_03 > Stage_04 > Stage_05 > Stage_06 > Stage_07,,True,False,True,1,0,1,0,,,,True,
+T2-02,process_20261009_161029.jsonl,,,,unclassified,64.52,,6,2,,,,,,,Stage_01 > Stage_02,,False,False,False,0,0,0,0,,,,True,
+T2-03,process_20261009_161525.jsonl,,,,unclassified,68.19,,12,3,,,,,,,Stage_01 > Stage_02 > Stage_03,,False,False,False,1,0,1,0,,,,True,
+process_20261009_163818.jsonl,process_20261009_163818.jsonl,,,,unclassified,184.23,,28,7,,,,,,,Stage_01 > Stage_02 > Stage_03 > Stage_04 > Stage_05 > Stage_06 > Stage_07,,True,False,False,9,0,9,0,,,,True,

@@ -1,0 +1,18 @@
+# ASSEMBLY MONITORING SESSION
+# Session start,2026-09-14 22:13:55
+# Trial ID,T-01
+# Camera type,logitech
+# Resolution,640x480
+# Lighting,Normal
+# Sensor height cm,TBD
+# Sensor angle deg,TBD
+
+event_id,event_type,detected_object,start_time,end_time,duration_sec,trial_id
+1,WARNING (WRONG_ORDER),threaded_pin:1,22:13:57,22:13:57,0.000,T-01
+2,ACTIVE,,22:14:07,22:14:08,0.802,T-01
+3,ACTIVE,,22:14:09,22:14:10,0.621,T-01
+4,WARNING (WRONG_ORDER),,22:14:12,22:14:12,0.000,T-01
+5,ACTIVE,,22:14:20,22:14:21,0.553,T-01
+6,WARNING (WRONG_ORDER),threaded_pin:1,22:14:26,22:14:26,0.000,T-01
+7,ACTIVE,,22:14:26,22:14:27,0.812,T-01
+8,ACTIVE (threaded_pin),threaded_pin,22:14:36,22:14:37,1.177,T-01

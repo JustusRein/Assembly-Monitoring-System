@@ -1,0 +1,86 @@
+{
+  "assembly": "subassembly",
+  "camera_elevation_deg": 35.0,
+  "frame_size": [
+    1280,
+    720
+  ],
+  "backend": "geometric",
+  "seats": {
+    "Seat_1": {
+      "anchor": [
+        0.4375,
+        0.56806
+      ],
+      "anchor_px_at_calibration": [
+        560,
+        409
+      ],
+      "class": "bushing",
+      "label": "1st hole",
+      "description": "1st bushing seat  (the hole the FIRST bushing goes into)"
+    },
+    "Seat_2": {
+      "anchor": [
+        0.43984,
+        0.52639
+      ],
+      "anchor_px_at_calibration": [
+        563,
+        379
+      ],
+      "class": "bushing",
+      "label": "2nd hole",
+      "description": "2nd bushing seat  (the hole the SECOND bushing goes into)"
+    }
+  },
+  "stage_requirements": {
+    "Stage_01": [
+      {
+        "seat": "Seat_1",
+        "class": "bushing",
+        "ordinal": 1
+      }
+    ],
+    "Stage_02": [
+      {
+        "seat": "Seat_1",
+        "class": "bushing",
+        "ordinal": 1
+      },
+      {
+        "seat": "Seat_2",
+        "class": "bushing",
+        "ordinal": 2
+      }
+    ]
+  },
+  "max_anchor_distance_px": 12.1,
+  "seat_memory_sec": 3.0,
+  "min_confidence": 0.45,
+  "stable_frames_wrong": 8,
+  "stable_frames_correct": 8,
+  "classifier": {
+    "model_path": "",
+    "input_size": 96,
+    "crop_margin_px": 40.0,
+    "min_confidence": 0.75,
+    "correct_label": "correct",
+    "wrong_label": "wrong_position"
+  },
+  "provenance": {
+    "calibrated": "2026-10-09T11:49:50",
+    "tool": "tools/calibrate_position_anchors.py",
+    "seat_separation_px": 30.1,
+    "cad_seat_separation_mm": 18.0,
+    "mm_per_px_estimate": 0.597,
+    "feasibility_experiment": "POS-FEAS-01",
+    "feasibility_note": "POS-FEAS-01 is a synthetic CAD observability study (3.38 % seat-region change at 35 deg elevation). It is not a measurement of real-camera accuracy. No accuracy figure should be quoted for this feature until a labelled real-camera test set has been measured.",
+    "scope_note": "Seat anchors are image coordinates and are valid only while the assembly orientation on the fixture and the camera pose are unchanged. Re-run this tool after any camera or fixture change. Pose normalisation is a documented extension.",
+    "acceptance_radius_note": "Seat centres are 30.1 px apart. The radius is 40% of that (12.1 px), strictly below half the separation so the two acceptance regions cannot overlap. The previous value of 18.0 px exceeded half the separation (15.1 px), so a bushing in either hole fell inside both regions."
+  },
+  "pose_tracking": {
+    "enabled": true,
+    "reference_image": "position_config_reference.png"
+  }
+}

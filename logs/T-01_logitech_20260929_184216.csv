@@ -1,0 +1,11 @@
+# ASSEMBLY MONITORING SESSION
+# Session start,2026-09-29 18:42:16
+# Trial ID,T-01
+# Camera type,logitech
+# Resolution,640x480
+# Lighting,Normal
+# Sensor height cm,TBD
+# Sensor angle deg,TBD
+
+event_id,event_type,detected_object,start_time,end_time,duration_sec,trial_id
+1,STAGE_CHANGE (None -> Stage_01),Stage_01,18:42:19,18:42:19,0.000,T-01

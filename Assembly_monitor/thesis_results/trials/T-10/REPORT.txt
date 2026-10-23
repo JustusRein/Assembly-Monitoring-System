@@ -1,0 +1,51 @@
+SCORED TRIAL  T-10
+======================================================================
+
+  matching tolerance   3.0 s
+  error response window 15.0 s
+  time-base offset     none (ground-truth times already in program time)
+
+WORKFLOW
+----------------------------------------------------------------------
+  Reference stages       7
+  Correct transitions    5
+  Out of tolerance       2
+  Missed                 0
+  Spurious               0
+  Workflow accuracy      71.43 %   (target >90 %, interim >80 %)
+
+TIMING
+----------------------------------------------------------------------
+  Mean |latency|         1.54 s
+  Mean timing error      32.81 %   (target <10 %)
+
+  per step:
+    Stage_01 to Stage_02       ref   7.20 s   sys  15.21 s   err 111.24 %
+    Stage_02 to Stage_03       ref  11.45 s   sys   9.59 s   err 16.28 %
+    Stage_03 to Stage_04       ref   5.80 s   sys   4.63 s   err 20.17 %
+    Stage_04 to Stage_05       ref   7.25 s   sys   9.82 s   err 35.49 %
+    Stage_05 to Stage_06       ref  22.30 s   sys  23.36 s   err 4.75 %
+    Stage_06 to Stage_07       ref  16.58 s   sys  15.10 s   err 8.94 %
+
+ERROR EPISODES
+----------------------------------------------------------------------
+  none declared in the ground truth, so error detection is
+  unscored for this trial.
+
+WHERE THIS GOES IN THE THESIS
+----------------------------------------------------------------------
+  New subsection 6.2.x 'Scored live trials'.
+  Table 6.10 rows that this trial moves off 'unscored':
+    - Assembly-stage recognition
+    - Step timing and transition latency
+    - Wrong-order handling      (if a WRONG_ORDER episode was run)
+    - Wrong-part handling       (if a WRONG_PART episode was run)
+
+FILES WRITTEN
+----------------------------------------------------------------------
+  REPORT.txt
+  trial_latency.png
+  trial_results.json
+  trial_summary.tex
+  trial_timeline.png
+  trial_transitions.tex

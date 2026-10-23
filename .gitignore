@@ -206,3 +206,4 @@ runs/
 #
 # The examples directory is intentionally NOT ignored.
 # ============================================================
+*.cache

@@ -1,0 +1,20 @@
+\begin{table}[htbp]
+\centering
+\caption{Per-class detection performance of the deployed YOLO26s model on the held-out test split of the combined synthetic dataset (1319 images, 2922 labelled instances). Precision and recall are reported at the best-F$_1$ operating point.}
+\label{tab:detector_perclass}
+\begin{tabular}{lrrrrrr}
+\hline
+Class & Images & Instances & P (\%) & R (\%) & mAP@0.5 (\%) & mAP@0.5:0.95 (\%) \\
+\hline
+body\_a & 0 & 0 & 93.80 & 93.96 & 97.49 & 70.06 \\
+body\_b & 0 & 0 & 90.56 & 81.97 & 92.08 & 61.61 \\
+block\_pin & 0 & 0 & 83.63 & 87.96 & 92.35 & 74.31 \\
+bushing & 0 & 0 & 86.78 & 89.70 & 94.01 & 74.80 \\
+nut & 0 & 0 & 85.87 & 88.39 & 95.04 & 68.63 \\
+knob & 0 & 0 & 93.85 & 91.15 & 95.55 & 75.34 \\
+threaded\_pin & 0 & 0 & 89.55 & 70.56 & 81.29 & 64.59 \\
+\hline
+\textbf{All classes} & 1319 & 2922 & \textbf{89.15} & \textbf{86.24} & \textbf{92.54} & \textbf{69.90} \\
+\hline
+\end{tabular}
+\end{table}

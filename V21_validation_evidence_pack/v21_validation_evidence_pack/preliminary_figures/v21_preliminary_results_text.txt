@@ -1,0 +1,9 @@
+Suggested thesis text (label as preliminary functional testing, not quantitative accuracy):
+
+Three process logs reported by the V2.1 analysis tool contained 14, 6, and 12 state records; 7, 2, and 3 stage-transition records; and 1, 0, and 1 warning records, respectively. The totals were 32 state records, 12 stage-transition records, and 2 warning records. These are descriptive software-log counts and must not be interpreted as stage accuracy or error-detection rate.
+
+In the unknown-object trial, the object outside the seven trained YOLO classes was not detected and no warning was generated. In the known-part out-of-order trial, the system generated a WRONG_ORDER warning when a nut was detected before Stage_03 had been completed. This is a positive observation for that specific warning condition, while the unknown-object result is a missed detection. Independent trial ground truth and error-injection timestamps were not complete for all sessions; aggregate accuracy and response latency are therefore not reported.
+
+Figure captions:
+Fig. X: Preliminary V2.1 process-log record counts and the outcomes of two described functional tests. Counts are descriptive only and do not represent accuracy.
+Fig. Y: YOLO26s precision, recall, mAP@0.50, and mAP@0.50:0.95 on the synthetic validation split of 560 images. These detector metrics are separate from end-to-end physical workflow validation.

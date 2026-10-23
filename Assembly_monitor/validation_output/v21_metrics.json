@@ -1,0 +1,502 @@
+{
+  "sessions": [
+    {
+      "trial_id": "T2-01",
+      "log_file": "process_20261009_160234.jsonl",
+      "date": "",
+      "operator": "",
+      "lighting": "",
+      "condition": "unclassified",
+      "total_time_s": 73.51,
+      "build_time_s": null,
+      "states_observed": 14,
+      "stages_reported": 7,
+      "stages_true": null,
+      "true_stage_route": "",
+      "stage_count_agrees": null,
+      "over_reported": null,
+      "under_reported": null,
+      "sequence_correct": null,
+      "route": "Stage_01 > Stage_02 > Stage_03 > Stage_04 > Stage_05 > Stage_06 > Stage_07",
+      "error_elapsed_s": null,
+      "goal_reached": true,
+      "goal_combination_observed": false,
+      "final_verified": true,
+      "warnings_total": 1,
+      "wrong_part": 0,
+      "wrong_order": 1,
+      "wrong_position": 0,
+      "expected_warning": "",
+      "induced_error_detected": null,
+      "response_time_s": null,
+      "log_complete": true,
+      "notes": ""
+    },
+    {
+      "trial_id": "T2-02",
+      "log_file": "process_20261009_161029.jsonl",
+      "date": "",
+      "operator": "",
+      "lighting": "",
+      "condition": "unclassified",
+      "total_time_s": 64.52,
+      "build_time_s": null,
+      "states_observed": 6,
+      "stages_reported": 2,
+      "stages_true": null,
+      "true_stage_route": "",
+      "stage_count_agrees": null,
+      "over_reported": null,
+      "under_reported": null,
+      "sequence_correct": null,
+      "route": "Stage_01 > Stage_02",
+      "error_elapsed_s": null,
+      "goal_reached": false,
+      "goal_combination_observed": false,
+      "final_verified": false,
+      "warnings_total": 0,
+      "wrong_part": 0,
+      "wrong_order": 0,
+      "wrong_position": 0,
+      "expected_warning": "",
+      "induced_error_detected": null,
+      "response_time_s": null,
+      "log_complete": true,
+      "notes": ""
+    },
+    {
+      "trial_id": "T2-03",
+      "log_file": "process_20261009_161525.jsonl",
+      "date": "",
+      "operator": "",
+      "lighting": "",
+      "condition": "unclassified",
+      "total_time_s": 68.19,
+      "build_time_s": null,
+      "states_observed": 12,
+      "stages_reported": 3,
+      "stages_true": null,
+      "true_stage_route": "",
+      "stage_count_agrees": null,
+      "over_reported": null,
+      "under_reported": null,
+      "sequence_correct": null,
+      "route": "Stage_01 > Stage_02 > Stage_03",
+      "error_elapsed_s": null,
+      "goal_reached": false,
+      "goal_combination_observed": false,
+      "final_verified": false,
+      "warnings_total": 1,
+      "wrong_part": 0,
+      "wrong_order": 1,
+      "wrong_position": 0,
+      "expected_warning": "",
+      "induced_error_detected": null,
+      "response_time_s": null,
+      "log_complete": true,
+      "notes": ""
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "log_file": "process_20261009_163818.jsonl",
+      "date": "",
+      "operator": "",
+      "lighting": "",
+      "condition": "unclassified",
+      "total_time_s": 184.23,
+      "build_time_s": null,
+      "states_observed": 28,
+      "stages_reported": 7,
+      "stages_true": null,
+      "true_stage_route": "",
+      "stage_count_agrees": null,
+      "over_reported": null,
+      "under_reported": null,
+      "sequence_correct": null,
+      "route": "Stage_01 > Stage_02 > Stage_03 > Stage_04 > Stage_05 > Stage_06 > Stage_07",
+      "error_elapsed_s": null,
+      "goal_reached": true,
+      "goal_combination_observed": false,
+      "final_verified": false,
+      "warnings_total": 9,
+      "wrong_part": 0,
+      "wrong_order": 9,
+      "wrong_position": 0,
+      "expected_warning": "",
+      "induced_error_detected": null,
+      "response_time_s": null,
+      "log_complete": true,
+      "notes": ""
+    }
+  ],
+  "stages": [
+    {
+      "trial_id": "T2-01",
+      "stage": "Stage_01",
+      "confirmed_at_s": 11.56,
+      "duration_s": 0.17,
+      "from_stage": null,
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "T2-01",
+      "stage": "Stage_02",
+      "confirmed_at_s": 24.68,
+      "duration_s": 13.12,
+      "from_stage": "Stage_01",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "T2-01",
+      "stage": "Stage_03",
+      "confirmed_at_s": 32.06,
+      "duration_s": 7.37,
+      "from_stage": "Stage_02",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "T2-01",
+      "stage": "Stage_04",
+      "confirmed_at_s": 38.82,
+      "duration_s": 6.76,
+      "from_stage": "Stage_03",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "T2-01",
+      "stage": "Stage_05",
+      "confirmed_at_s": 44.83,
+      "duration_s": 6.02,
+      "from_stage": "Stage_04",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "T2-01",
+      "stage": "Stage_06",
+      "confirmed_at_s": 54.28,
+      "duration_s": 9.45,
+      "from_stage": "Stage_05",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "T2-01",
+      "stage": "Stage_07",
+      "confirmed_at_s": 56.8,
+      "duration_s": 2.52,
+      "from_stage": "Stage_06",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "T2-02",
+      "stage": "Stage_01",
+      "confirmed_at_s": 7.14,
+      "duration_s": 0.06,
+      "from_stage": null,
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "T2-02",
+      "stage": "Stage_02",
+      "confirmed_at_s": 38.91,
+      "duration_s": 31.77,
+      "from_stage": "Stage_01",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "T2-03",
+      "stage": "Stage_01",
+      "confirmed_at_s": 6.79,
+      "duration_s": 0.0,
+      "from_stage": null,
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "T2-03",
+      "stage": "Stage_02",
+      "confirmed_at_s": 15.33,
+      "duration_s": 8.55,
+      "from_stage": "Stage_01",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "T2-03",
+      "stage": "Stage_03",
+      "confirmed_at_s": 20.77,
+      "duration_s": 5.44,
+      "from_stage": "Stage_02",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "stage": "Stage_01",
+      "confirmed_at_s": 6.97,
+      "duration_s": 0.0,
+      "from_stage": null,
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "stage": "Stage_02",
+      "confirmed_at_s": 8.96,
+      "duration_s": 1.98,
+      "from_stage": "Stage_01",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "stage": "Stage_02",
+      "confirmed_at_s": 19.79,
+      "duration_s": 10.83,
+      "from_stage": "Stage_01",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "stage": "Stage_02",
+      "confirmed_at_s": 118.24,
+      "duration_s": 98.45,
+      "from_stage": "Stage_01",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "stage": "Stage_03",
+      "confirmed_at_s": 157.54,
+      "duration_s": 39.3,
+      "from_stage": "Stage_02",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "stage": "Stage_04",
+      "confirmed_at_s": 162.6,
+      "duration_s": 5.06,
+      "from_stage": "Stage_03",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "stage": "Stage_05",
+      "confirmed_at_s": 168.36,
+      "duration_s": 5.76,
+      "from_stage": "Stage_04",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "stage": "Stage_06",
+      "confirmed_at_s": 177.89,
+      "duration_s": 9.53,
+      "from_stage": "Stage_05",
+      "transition_type": "STANDARD"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "stage": "Stage_07",
+      "confirmed_at_s": 180.22,
+      "duration_s": 2.33,
+      "from_stage": "Stage_06",
+      "transition_type": "STANDARD"
+    }
+  ],
+  "errors": [
+    {
+      "trial_id": "T2-01",
+      "elapsed_s": 38.25,
+      "warning_type": "WRONG_ORDER",
+      "current_stage": "Stage_03",
+      "message": "Wrong order: parts for a later stage were detected before completing 'Stage_03'.",
+      "observed": "body_a x1; bushing x1; nut x1"
+    },
+    {
+      "trial_id": "T2-03",
+      "elapsed_s": 63.58,
+      "warning_type": "WRONG_ORDER",
+      "current_stage": "Stage_03",
+      "message": "Wrong order: parts for a later stage were detected before completing 'Stage_03'.",
+      "observed": "bushing x1; nut x1"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "elapsed_s": 87.0,
+      "warning_type": "WRONG_ORDER",
+      "current_stage": "Stage_01",
+      "message": "Wrong order: parts for a later stage were detected before completing 'Stage_01'.",
+      "observed": "body_a x1; nut x1"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "elapsed_s": 87.94,
+      "warning_type": "WRONG_ORDER",
+      "current_stage": "Stage_01",
+      "message": "Wrong order: parts for a later stage were detected before completing 'Stage_01'.",
+      "observed": "block_pin x1"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "elapsed_s": 88.46,
+      "warning_type": "WRONG_ORDER",
+      "current_stage": "Stage_01",
+      "message": "Wrong order: parts for a later stage were detected before completing 'Stage_01'.",
+      "observed": "body_a x1; nut x1"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "elapsed_s": 89.78,
+      "warning_type": "WRONG_ORDER",
+      "current_stage": "Stage_01",
+      "message": "Wrong order: parts for a later stage were detected before completing 'Stage_01'.",
+      "observed": "body_a x1; nut x1"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "elapsed_s": 137.24,
+      "warning_type": "WRONG_ORDER",
+      "current_stage": "Stage_02",
+      "message": "Wrong order: parts for a later stage were detected before completing 'Stage_02'.",
+      "observed": "threaded_pin x1"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "elapsed_s": 137.8,
+      "warning_type": "WRONG_ORDER",
+      "current_stage": "Stage_02",
+      "message": "Wrong order: parts for a later stage were detected before completing 'Stage_02'.",
+      "observed": "threaded_pin x1"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "elapsed_s": 140.26,
+      "warning_type": "WRONG_ORDER",
+      "current_stage": "Stage_02",
+      "message": "Wrong order: parts for a later stage were detected before completing 'Stage_02'.",
+      "observed": "threaded_pin x1"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "elapsed_s": 141.85,
+      "warning_type": "WRONG_ORDER",
+      "current_stage": "Stage_02",
+      "message": "Wrong order: parts for a later stage were detected before completing 'Stage_02'.",
+      "observed": "knob x1; threaded_pin x1"
+    },
+    {
+      "trial_id": "process_20261009_163818.jsonl",
+      "elapsed_s": 153.02,
+      "warning_type": "WRONG_ORDER",
+      "current_stage": "Stage_02",
+      "message": "Wrong order: parts for a later stage were detected before completing 'Stage_02'.",
+      "observed": "block_pin x1; body_a x1; body_b x1"
+    }
+  ],
+  "aggregate": {
+    "trials_total": 4,
+    "trials_nominal": 0,
+    "trials_induced": 0,
+    "trials_nominal_complete": 0,
+    "trials_induced_complete": 0,
+    "logs_incomplete": 0,
+    "ground_truth_rows_scored": 0,
+    "stage_count_checked": 0,
+    "stage_count_agree": 0,
+    "stage_count_agreement_rate": null,
+    "sequence_trials_scored": 0,
+    "sequence_correct_rate": null,
+    "goal_reached_rate": null,
+    "build_time_mean_s": null,
+    "build_time_median_s": null,
+    "build_time_sd_s": null,
+    "build_time_min_s": null,
+    "build_time_max_s": null,
+    "stage_stats": {
+      "Stage_01": {
+        "n": 0,
+        "mean_s": null,
+        "median_s": null,
+        "sd_s": null,
+        "min_s": null,
+        "max_s": null
+      },
+      "Stage_02": {
+        "n": 0,
+        "mean_s": null,
+        "median_s": null,
+        "sd_s": null,
+        "min_s": null,
+        "max_s": null
+      },
+      "Stage_03": {
+        "n": 0,
+        "mean_s": null,
+        "median_s": null,
+        "sd_s": null,
+        "min_s": null,
+        "max_s": null
+      },
+      "Stage_04": {
+        "n": 0,
+        "mean_s": null,
+        "median_s": null,
+        "sd_s": null,
+        "min_s": null,
+        "max_s": null
+      },
+      "Stage_05": {
+        "n": 0,
+        "mean_s": null,
+        "median_s": null,
+        "sd_s": null,
+        "min_s": null,
+        "max_s": null
+      },
+      "Stage_06": {
+        "n": 0,
+        "mean_s": null,
+        "median_s": null,
+        "sd_s": null,
+        "min_s": null,
+        "max_s": null
+      },
+      "Stage_07": {
+        "n": 0,
+        "mean_s": null,
+        "median_s": null,
+        "sd_s": null,
+        "min_s": null,
+        "max_s": null
+      }
+    },
+    "induced_checked": 0,
+    "induced_detected": 0,
+    "error_detection_rate": null,
+    "mean_response_s": null,
+    "by_condition": {
+      "induced_wrong_part": {
+        "trials": 0,
+        "scored_trials": 0,
+        "unscored_missing_injection_time": 0,
+        "detected": 0,
+        "detection_rate": null,
+        "mean_response_s": null
+      },
+      "induced_wrong_order": {
+        "trials": 0,
+        "scored_trials": 0,
+        "unscored_missing_injection_time": 0,
+        "detected": 0,
+        "detection_rate": null,
+        "mean_response_s": null
+      },
+      "induced_wrong_position": {
+        "trials": 0,
+        "scored_trials": 0,
+        "unscored_missing_injection_time": 0,
+        "detected": 0,
+        "detection_rate": null,
+        "mean_response_s": null
+      }
+    },
+    "nominal_warning_events": 0,
+    "nominal_trials_with_warnings": 0
+  }
+}

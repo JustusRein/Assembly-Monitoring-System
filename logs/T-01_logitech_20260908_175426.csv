@@ -1,0 +1,22 @@
+# ASSEMBLY MONITORING SESSION
+# Session start,2026-09-08 17:54:26
+# Trial ID,T-01
+# Camera type,logitech
+# Resolution,640x480
+# Lighting,Normal
+# Sensor height cm,TBD
+# Sensor angle deg,TBD
+
+event_id,event_type,detected_object,start_time,end_time,duration_sec,trial_id
+1,WARNING (WRONG_PART),power_adapter:1,17:54:29,17:54:29,0.000,T-01
+2,WARNING (WRONG_PART),"marker:1,power_adapter:2",17:54:30,17:54:30,0.000,T-01
+3,WARNING (WRONG_PART),power_adapter:2,17:54:30,17:54:30,0.000,T-01
+4,WARNING (WRONG_PART),power_adapter:1,17:54:31,17:54:31,0.000,T-01
+5,WARNING (WRONG_PART),power_adapter:1,17:54:32,17:54:32,0.000,T-01
+6,WARNING (WRONG_PART),power_adapter:1,17:54:34,17:54:34,0.000,T-01
+7,ACTIVE,,17:54:35,17:54:36,0.986,T-01
+8,WARNING (WRONG_PART),power_adapter:1,17:54:36,17:54:36,0.000,T-01
+9,WARNING (WRONG_PART),power_adapter:1,17:54:37,17:54:37,0.000,T-01
+10,WARNING (WRONG_PART),power_adapter:1,17:54:39,17:54:39,0.000,T-01
+11,WARNING (WRONG_PART),power_adapter:1,17:54:42,17:54:42,0.000,T-01
+12,WARNING (WRONG_PART),power_adapter:2,17:54:43,17:54:43,0.000,T-01

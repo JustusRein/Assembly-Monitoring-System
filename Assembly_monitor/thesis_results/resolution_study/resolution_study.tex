@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering
+\caption{Effect of inference input size on detector performance, measured on the synthetic test split with the deployed model weights. Inference resolution is varied as a single experimental factor; all other conditions are held constant.}
+\label{tab:resolution-study}
+\begin{tabular}{|r|r|r|r|r|r|}
+\hline
+\textbf{Input size} & \textbf{Precision} & \textbf{Recall} & \textbf{mAP@0.50} & \textbf{mAP@0.50:0.95} & \textbf{Inference} \\
+\hline
+640\,px & 89.64\,\% & 85.15\,\% & 91.21\,\% & 69.70\,\% & 8.0\,ms \\
+\hline
+960\,px & 84.96\,\% & 86.03\,\% & 90.18\,\% & 66.27\,\% & 19.0\,ms \\
+\hline
+1280\,px & 77.91\,\% & 74.94\,\% & 80.67\,\% & 54.17\,\% & 33.5\,ms \\
+\hline
+\end{tabular}
+\end{table}

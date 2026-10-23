@@ -1,0 +1,25 @@
+# ASSEMBLY MONITORING SESSION
+# Session start,2026-10-06 19:09:52
+# Trial ID,T-01
+# Camera type,logitech
+# Resolution,640x480
+# Lighting,Normal
+# Sensor height cm,TBD
+# Sensor angle deg,TBD
+
+event_id,event_type,detected_object,start_time,end_time,duration_sec,trial_id
+1,STAGE_CHANGE (None -> Stage_01),Stage_01,19:09:57,19:09:57,0.000,T-01
+2,STAGE_CHANGE (Stage_01 -> Stage_02),Stage_02,19:10:02,19:10:02,0.000,T-01
+3,ACTIVE (bushing),bushing,19:10:00,19:10:03,3.133,T-01
+4,ACTIVE,,19:10:03,19:10:04,0.957,T-01
+5,ACTIVE,,19:10:12,19:10:17,5.102,T-01
+6,ACTIVE,,19:10:23,19:10:26,2.915,T-01
+7,ACTIVE,,19:10:28,19:10:29,0.502,T-01
+8,ACTIVE,,19:10:37,19:10:38,1.490,T-01
+9,ACTIVE,,19:10:40,19:10:43,2.920,T-01
+10,STAGE_CHANGE (Stage_02 -> Stage_03),Stage_03,19:10:43,19:10:43,0.000,T-01
+11,ACTIVE (body_b),body_b,19:10:50,19:10:52,1.260,T-01
+12,ACTIVE,,19:10:56,19:10:59,3.389,T-01
+13,ACTIVE,,19:11:00,19:11:01,0.798,T-01
+14,ACTIVE,,19:11:02,19:11:03,1.004,T-01
+15,ACTIVE,,19:11:08,19:11:08,0.831,T-01

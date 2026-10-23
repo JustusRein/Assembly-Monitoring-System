@@ -1,0 +1,4 @@
+﻿log_file,trial_id,condition,true_stages_completed,observed_transition_records,observed_stage_route,stage_count_match,true_route,route_exact_match,expected_warning_type,expected_warning_seen,expected_warning_after_injection,warning_latency_s,position_result_scored,notes
+process_20261009_160234.jsonl,T2-01,,,7,Stage_01>Stage_02>Stage_03>Stage_04>Stage_05>Stage_06>Stage_07,,,,,,,,,
+process_20261009_161029.jsonl,T2-02,,,2,Stage_01>Stage_02,,,,,,,,,
+process_20261009_161525.jsonl,T2-03,,,3,Stage_01>Stage_02>Stage_03,,,,,,,,,

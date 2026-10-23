@@ -1,0 +1,56 @@
+ONE-FACTOR STUDY: INFERENCE RESOLUTION
+======================================================================
+
+  split   test
+  levels  640, 960, 1280 px
+
+OVERALL
+----------------------------------------------------------------------
+      size        P        R    mAP50  mAP50-95   ms/img
+       640    89.64    85.15    91.21     69.70      8.0
+       960    84.96    86.03    90.18     66.27     19.0
+      1280    77.91    74.94    80.67     54.17     33.5
+
+CHANGE RELATIVE TO THE 640 px BASELINE
+----------------------------------------------------------------------
+    960 px   mAP50  -1.03 pp   mAP50-95  -3.43 pp   recall  +0.88 pp   cost +11.0 ms
+   1280 px   mAP50 -10.54 pp   mAP50-95 -15.54 pp   recall -10.21 pp   cost +25.5 ms
+
+SMALL COMPONENTS, mAP@0.50:0.95
+----------------------------------------------------------------------
+  class                640       960      1280
+  block_pin          80.57     80.33     66.12
+  bushing            83.16     79.91     76.14
+  nut                54.60     49.67     31.61
+  threaded_pin       37.19     36.39     31.69
+
+READING THIS RESULT
+----------------------------------------------------------------------
+  Best overall mAP@0.50:0.95 at 640 px (69.70 %).
+
+  These images are RENDERS, and the renders show the components
+  at a generous apparent size. The live camera does not: a seated
+  bushing is roughly 25-30 px in the 1280x720 frame, which at an
+  input size of 640 is halved to about 15 px. The improvement
+  available on the bench is therefore larger than the improvement
+  visible here, and it has to be confirmed at the workstation
+  rather than inferred from this table.
+
+  What this table DOES establish is the cost side: whether raising
+  the input size reduces accuracy, and how much inference time it
+  adds. Both are needed before changing the deployed setting.
+
+NEXT STEP
+----------------------------------------------------------------------
+  Set YOLO_IMGSZ = 640 in config\settings.py, run
+  main.py, and check whether a seated bushing is detected at
+  normal working distance. That live check is the result that
+  matters; this table is the evidence that the change is safe.
+
+FILES WRITTEN
+----------------------------------------------------------------------
+  resolution_per_class.tex
+  resolution_results.json
+  resolution_small_parts.png
+  resolution_study.png
+  resolution_study.tex
