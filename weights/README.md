@@ -32,7 +32,7 @@ before you waste time on it.
 
 `scripts/train_yolo.py` trains a detector from an annotated real-image dataset,
 evaluates it on the test split, backs up the previous `best.pt` and copies the
-new one into this folder — so the live system picks it up with no code change.
+new one into this folder - so the live system picks it up with no code change.
 
 ```bash
 python scripts/train_yolo.py

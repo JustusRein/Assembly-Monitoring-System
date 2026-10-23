@@ -72,7 +72,7 @@ Components are placed in a parameterised Blender scene with randomised pose, cam
 
 Manual annotation was considered and rejected: it costs effort for every image, produces inconsistent labels, and has to be repeated for every new product, which defeats the point of a transferable method. This part is the most reusable result of the thesis: a new product needs its CAD model and nothing else.
 
-The generation pipeline is a separate Blender project and is **not published here**, because its scripts embed CAD geometry supplied by the industrial partner. The procedure is documented at method level in Appendix B of the thesis, so it can be reproduced from your own CAD.
+The generation pipeline is in [`synthetic_data_generator/`](synthetic_data_generator). The partner-supplied CAD geometry has been removed from the scripts, so you supply your own CAD and the pipeline runs unchanged.
 
 ---
 
@@ -87,7 +87,7 @@ The generation pipeline is a separate Blender project and is **not published her
 
 ![Normalised confusion matrix](Assembly_monitor/thesis_results/detector/confusion_matrix.png)
 
-The weakest classes are `threaded_pin` (recall 70.56 % — small, thin, and partly inside the body once inserted) and `body_b` (mAP@0.50:0.95 61.61 % — occluded once the halves are joined). Both are occlusion and scale effects, not the detector confusing one class for another.
+The weakest classes are `threaded_pin` (recall 70.56 % - small, thin, and partly inside the body once inserted) and `body_b` (mAP@0.50:0.95 61.61 % - occluded once the halves are joined). Both are occlusion and scale effects, not the detector confusing one class for another.
 
 The gap between the two mAP columns says something specific: the detector finds the right objects, but the boxes are not always tightly placed. That is a localisation gap, not a miss rate and for counting *which components are present*, the looser threshold is the relevant one.
 
@@ -161,5 +161,5 @@ Python · OpenCV · Ultralytics YOLO · PyTorch · NumPy · Blender (synthetic d
 
 ## Author
 
-**Mehul Patil** — M.Sc. Aerospace Engineering, Technische Universität Darmstadt, Germany.
+**Mehul Patil** - M.Sc. Aerospace Engineering, Technische Universität Darmstadt, Germany.
 Master's thesis at the Institute of Product Life Cycle Management (PLCM).

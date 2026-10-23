@@ -1,4 +1,4 @@
-# V2.1 Validation Pack — Audited and Corrected
+# V2.1 Validation Pack - Audited and Corrected
 
 This revised pack is intended for the 09 October 2026 validation session. It keeps
 Claude's useful structure and thesis-ready outputs, but fixes methodological and
@@ -22,7 +22,7 @@ The analysis is designed to produce thesis material from your actual logs; it do
 
 ---
 
-## PART 1 — What the V1 chapter could not do, and what this fixes
+## PART 1 - What the V1 chapter could not do, and what this fixes
 
 Your V1 section ends with an honest admission:
 
@@ -47,7 +47,7 @@ the deliberately introduced error. Do not skip these checks.
 
 ---
 
-## PART 2 — The trials to record (prioritise the working system first)
+## PART 2 - The trials to record (prioritise the working system first)
 
 ### Before recording: isolate the validation logs
 
@@ -73,7 +73,7 @@ For each deliberate error, record the approximate time in seconds from the start
 
 ---
 
-## PART 3 — Produce the results
+## PART 3 - Produce the results
 
 Copy the corrected `analyze_v21_validation.py` into:
 
@@ -134,7 +134,7 @@ For the LaTeX paths below, copy the complete `validation_output` folder next to 
 
 ---
 
-## PART 4 — LaTeX chapter skeleton
+## PART 4 - LaTeX chapter skeleton
 
 Paste this into your thesis and fill the bracketed parts from
 `v21_validation_report.txt`. It matches your V1 formatting.
@@ -392,7 +392,7 @@ wrong-position handling require separate evidence.
 
 ---
 
-## PART 5 — If you are short of time
+## PART 5 - If you are short of time
 
 Priority order for a defensible submission today:
 
@@ -405,7 +405,7 @@ The immediate measured core plan is **nine runs** (five nominal, two wrong-part,
 
 ---
 
-## PART 6 — For GPT
+## PART 6 - For GPT
 
 If you hand this to another assistant, the context it needs is:
 
