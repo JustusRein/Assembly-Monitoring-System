@@ -140,9 +140,9 @@ Two notes kept from development, because they record decisions that are still lo
 <details>
 <summary><b>Stage_01 was being skipped, and the display disagreed with the system</b></summary>
 
-**The bug.** Showing `body_a` with both bushings at the start jumped straight to Stage_02 — Stage_01 was never confirmed. In practice the first thing the system waited for was *two* bushings.
+**The bug.** Showing `body_a` with both bushings at the start jumped straight to Stage_02 - Stage_01 was never confirmed. In practice the first thing the system waited for was *two* bushings.
 
-**Cause.** While the current stage was still unconfirmed, evidence that happened to match the *next* stage was allowed to advance the sequence. If both bushings were in view at the start or the detector double-detected one — Stage_01 was bypassed entirely.
+**Cause.** While the current stage was still unconfirmed, evidence that happened to match the *next* stage was allowed to advance the sequence. If both bushings were in view at the start or the detector double-detected one - Stage_01 was bypassed entirely.
 
 **Fix.** A stage can no longer be skipped. While the current stage is unconfirmed, matching the next stage does nothing. Each stage must be confirmed in turn, in order.
 
@@ -154,7 +154,7 @@ then 2nd bushing        -> Stage_02
 
 **Display and logic now read from one source.** The panel used to print a worded hint while the state machine tested a different dictionary, so any mismatch was invisible on screen. The panel now prints the live requirement straight from `current_requirement`, so the two cannot disagree.
 
-**Regression suite — 10/10:**
+**Regression suite - 10/10:**
 
 | Check | Result |
 |---|---|
@@ -169,7 +169,7 @@ then 2nd bushing        -> Stage_02
 | Slow pace + heavy occlusion reaches Stage_07 | PASS |
 | Manual stage control + reset | PASS |
 
-**Still open.** None of this makes the detector find the nut, threaded pin or knob. If the detector never outputs `nut`, the nut stage cannot confirm — the signal never arrives. That is a detection problem, not a logic problem, and it is why the per-class recall figures in the main README matter.
+**Still open.** None of this makes the detector find the nut, threaded pin or knob. If the detector never outputs `nut`, the nut stage cannot confirm - the signal never arrives. That is a detection problem, not a logic problem, and it is why the per-class recall figures in the main README matter.
 
 </details>
 
