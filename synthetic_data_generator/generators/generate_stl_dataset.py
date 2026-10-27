@@ -32,7 +32,7 @@ OUTPUT_ROOT = Path(
     r"\synthetic_data_generator\output_stl_dataset"
 )
 
-IMAGES_PER_STL = 2
+IMAGES_PER_STL = 5
 
 RES_X = 640
 RES_Y = 640
